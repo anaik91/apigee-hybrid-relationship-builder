@@ -47,20 +47,38 @@ python generate_apigee_map.py <release_name> [options]
 |release_name|The name of the Helm release to diagram.|Yes|N/A|
 |-n, --namespace|The Kubernetes namespace where the release is located.|No|apigee
 |--deep-discovery|A flag to enable deep, recursive discovery of all child/descendant objects.|No|Disabled|
+|--include-kinds|Filter to only include these resource Kinds in the output|No|ApigeeDatastore, ApigeeDeployment, ApigeeEnvironment, ApigeeIssue, ApigeeOrganization, ApigeeRedis, ApigeeRoute, ApigeeRouteConfig, ApigeeTelemetry, CassandraDatareplication, Certificate, ClusterIssuer, ClusterRole, ClusterRoleBinding, ConfigMap, DaemonSet, Deployment, MutatingWebhookConfiguration, Pod, ReplicaSet, Role, RoleBinding, Secret, SecretRotation, Service, ServiceAccount, StatefulSet, ValidatingWebhookConfiguration|
+|--exclude-kindsy|Filter to only exclude these resource Kinds in the output.|No|None|
 
 ## Examples
 * Example 1: Shallow Discovery (Default)
     This command will find only the resources directly managed by the my-app Helm release in the production namespace.
     ```bash
-    python helm_visualizer.py my-app -n production
+    python generate_apigee_map.py my-app -n production
     ```
     The output will be a Mermaid diagram showing direct lines from "Helm Release: my-app" to the resources it created, like Deployments, Services, and ConfigMaps.
+
 * Example 2: Deep Discovery
     This command will find all related resources for the apigee-runtime release in the default apigee namespace. It will trace the hierarchy from Deployments down to ReplicaSets and Pods.
     ```bash
-    python helm_visualizer.py apigee-runtime --deep-discovery
+    python generate_apigee_map.py apigee-runtime --deep-discovery
     ```
     The output will be a much more detailed diagram showing the full ownership chain.
+
+
+* Example 3: Include certain kinds
+    This command will find all related resources for the apigee-runtime release in the default apigee namespace. But will only include Deployment 
+    ```bash
+    python3 generate_apigee_map.py -n apigee operator --include-kinds Deployment 
+    ```
+    The output will only contain resources of kind : Deployment.
+
+* Example 4: Exclude certain kinds
+    This command will find all related resources for the apigee-runtime release in the default apigee namespace. But will exclude ClusterRole ClusterRoleBinding Role RoleBinding ServiceAccount 
+    ```bash
+    python3 generate_apigee_map.py -n apigee operator --exclude-kinds ClusterRole ClusterRoleBinding Role RoleBinding ServiceAccount 
+    ```
+    The output will not contain resources of kind : ClusterRole ClusterRoleBinding Role RoleBinding ServiceAccount.
 
 ## Rendering the Diagram
 After running the script, it will print the Mermaid diagram code directly to your console.

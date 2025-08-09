@@ -269,6 +269,11 @@ def main():
         action="store_true",
         help="Enable deep discovery to find all recursively owned resources."
     )
+    parser.add_argument(
+        "--md-format",
+        action="store_true",
+        help="Enable deep discovery to find all recursively owned resources."
+    )
     args = parser.parse_args()
 
     # Initialize K8s API clients once
@@ -293,13 +298,19 @@ def main():
     relationships = build_relationship_map(all_related_objects, args.release_name, args.namespace)
     mermaid_output = generate_mermaid_diagram(relationships, args.release_name)
 
-    print("\n" + "="*50)
-    print("Mermaid Diagram Code (copy and paste this):")
-    print("="*50 + "\n")
-    print(mermaid_output)
-    print("\n" + "="*50)
-    print("You can render this diagram using online editors like https://mermaid.live")
-    print("="*50)
+    if args.md_format:
+        print(f"#### Release {args.release_name} -> Namespace {args.namespace}")
+        print("```mermaid")
+        print(mermaid_output)
+        print("```")
+    else:
+        print("\n" + "="*50)
+        print("Mermaid Diagram Code (copy and paste this):")
+        print("="*50 + "\n")        
+        print(mermaid_output)
+        print("\n" + "="*50)
+        print("You can render this diagram using online editors like https://mermaid.live")
+        print("="*50)
 
 if __name__ == "__main__":
     main()

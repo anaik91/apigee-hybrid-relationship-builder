@@ -17,6 +17,7 @@ The generated diagram helps in understanding the entire footprint of a Helm char
 
 ## Example Diagram
 The script outputs Mermaid graph definition code. When rendered by a tool like the Mermaid Live Editor, it produces a visual graph.
+
 ### Diagram Legend:
 * Pink (#f9f): The Helm Release itself.
 * Yellow (#fff3cd): Apigee Custom Resources (CRDs).

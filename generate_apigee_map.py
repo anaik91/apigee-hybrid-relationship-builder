@@ -35,6 +35,8 @@ RESOURCE_FETCHERS = {
         lambda api, n: api["custom"].list_namespaced_custom_object("cert-manager.io", "v1", n, "certificates").get("items", []),
     ],
     "cluster": [
+        lambda api: api["wh_v1"].list_mutating_webhook_configuration().items,
+        lambda api: api["wh_v1"].list_validating_webhook_configuration().items,
         lambda api: api["rbac_v1"].list_cluster_role().items,
         lambda api: api["rbac_v1"].list_cluster_role_binding().items,
         lambda api: api["custom"].list_cluster_custom_object("cert-manager.io", "v1", "clusterissuers").get("items", []),
@@ -50,7 +52,8 @@ def _get_api_clients():
             "v1": client.CoreV1Api(),
             "apps_v1": client.AppsV1Api(),
             "rbac_v1": client.RbacAuthorizationV1Api(),
-            "custom": client.CustomObjectsApi()
+            "custom": client.CustomObjectsApi(),
+            "wh_v1" : client.AdmissionregistrationV1Api()
         }
     except Exception as e:
         print(f"Error: Could not configure Kubernetes client: {e}", file=sys.stderr)

@@ -1,0 +1,81 @@
+# --- Python Artifacts ---
+# Byte-code and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyzw
+
+# C-extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+sdist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+
+# --- Virtual Environments ---
+# A good practice is to name your virtual environment 'venv' or '.venv'
+venv/
+.venv/
+env/
+.env/
+*_env/
+
+
+# --- Test & Linter Artifacts ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+
+
+# --- IDEs and Editors ---
+# VSCode
+.vscode/
+# PyCharm
+.idea/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Atom
+.atom/
+# Emacs
+*~
+# Vim
+*.swp
+
+
+# --- OS-specific files ---
+# MacOS
+.DS_Store
+# Windows
+Thumbs.db
+
+
+# --- Secrets & Sensitive Configs ---
+# Environment variables file
+.env
+
+# A local kubeconfig file that might be placed in the project directory
+kubeconfig
+secrets.yaml
+*.secrets.yaml
+
+# --- Generated Output (Optional) ---
+# If you save the Mermaid output to a file to generate an image
+*.png
+*.svg
+*.html
+diagram.md

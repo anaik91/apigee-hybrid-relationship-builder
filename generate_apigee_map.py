@@ -7,8 +7,7 @@ from kubernetes import client, config
 HELM_ANNOTATION_RELEASE_NAME = "meta.helm.sh/release-name"
 HELM_ANNOTATION_RELEASE_NAMESPACE = "meta.helm.sh/release-namespace"
 
-# Centralized dictionary of all resource types to fetch for discovery.
-# The key is the resource 'Kind', which is used for filtering.
+
 RESOURCE_METADATA = {
     # Namespaced resources
     "Pod": {"scope": "namespaced", "fetcher": lambda api, n: api["v1"].list_namespaced_pod(n).items},
@@ -44,8 +43,6 @@ RESOURCE_METADATA = {
 }
 
 
-# --- NEW: Styling Configuration ---
-# Map a resource Kind to a style group. This allows related resources to share a color.
 KIND_TO_STYLE_GROUP = {
     "Deployment": "workload",
     "StatefulSet": "workload",
@@ -121,32 +118,42 @@ def _fetch_all_potential_objects(api_clients, namespace):
         try:
             if meta["scope"] == "namespaced":
                 all_potential_objects.extend(meta["fetcher"](api_clients, namespace))
-            else: # cluster-scoped
+            else:
                 all_potential_objects.extend(meta["fetcher"](api_clients))
         except client.ApiException as e:
-            if e.status != 404: # Ignore 'Not Found' errors for CRDs that aren't installed
+            if e.status != 404:
                 print(f"Warning: Could not fetch resource kind '{kind}': {e.reason}", file=sys.stderr)
     return all_potential_objects
 
 
 def get_object_uid(k8s_object):
-    is_dict = isinstance(k8s_object, dict)
-    return k8s_object['metadata']['uid'] if is_dict else k8s_object.metadata.uid
+    if isinstance(k8s_object, dict):
+        return k8s_object['metadata']['uid']
+    else:
+        return k8s_object.metadata.uid
 
 def get_object_kind(k8s_object):
-    if isinstance(k8s_object, dict): return k8s_object.get('kind', 'Unknown')
-    kind = getattr(k8s_object, 'kind', None)
-    if kind: return kind
-    class_name = type(k8s_object).__name__
-    return class_name.replace('V1', '').replace('V1beta1','')
+    if isinstance(k8s_object, dict):
+        return k8s_object.get('kind', 'Unknown')
+    else:
+        kind = getattr(k8s_object, 'kind', None)
+        if kind:
+            return kind
+        else:
+            class_name = type(k8s_object).__name__
+            return class_name.replace('V1', '').replace('V1beta1','')
 
 def get_object_name(k8s_object):
-    is_dict = isinstance(k8s_object, dict)
-    return k8s_object['metadata']['name'] if is_dict else k8s_object.metadata.name
+    if isinstance(k8s_object, dict):
+        return k8s_object['metadata']['name']
+    else:
+        return k8s_object.metadata.name
 
 def get_object_spec(k8s_object):
-    is_dict = isinstance(k8s_object, dict)
-    return k8s_object.get('spec') if is_dict else getattr(k8s_object, 'spec', None)
+    if isinstance(k8s_object, dict):
+        return k8s_object.get('spec')
+    else:
+        return getattr(k8s_object, 'spec', None)
 
 
 def discover_helm_managed_objects(api_clients, namespace, release_name):
@@ -156,11 +163,18 @@ def discover_helm_managed_objects(api_clients, namespace, release_name):
     seed_objects = []
     for obj in all_potential_objects:
         is_dict = isinstance(obj, dict)
-        metadata = obj['metadata'] if is_dict else obj.metadata
-        annotations = metadata.get('annotations') if is_dict else metadata.annotations
-        if annotations and (annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name and
-                           annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace):
-            seed_objects.append(obj)
+        if is_dict:
+            metadata = obj['metadata']
+            annotations = metadata.get('annotations')
+        else:
+            metadata = obj.metadata
+            annotations = metadata.annotations
+
+        if annotations:
+            is_release_match = annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name
+            is_namespace_match = annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace
+            if is_release_match and is_namespace_match:
+                seed_objects.append(obj)
     return seed_objects
 
 
@@ -171,30 +185,58 @@ def discover_full_hierarchy(api_clients, namespace, release_name):
     seed_objects = []
     for obj in all_potential_objects:
         is_dict = isinstance(obj, dict)
-        metadata = obj['metadata'] if is_dict else obj.metadata
-        annotations = metadata.get('annotations') if is_dict else metadata.annotations
-        if annotations and (annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name and
-                           annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace):
-            seed_objects.append(obj)
-    if not seed_objects: return []
+        if is_dict:
+            metadata = obj['metadata']
+            annotations = metadata.get('annotations')
+        else:
+            metadata = obj.metadata
+            annotations = metadata.annotations
+
+        if annotations:
+            is_release_match = annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name
+            is_namespace_match = annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace
+            if is_release_match and is_namespace_match:
+                seed_objects.append(obj)
+
+    if not seed_objects:
+        return []
+
     print("Starting recursive discovery from seed objects...")
     final_objects = {}
     discovery_queue = deque(seed_objects)
     processed_uids = set()
+
     while discovery_queue:
         parent_obj = discovery_queue.popleft()
         parent_uid = get_object_uid(parent_obj)
-        if parent_uid in processed_uids: continue
+        if parent_uid in processed_uids:
+            continue
         processed_uids.add(parent_uid)
         final_objects[parent_uid] = parent_obj
+
         for child_obj in all_potential_objects:
             child_uid = get_object_uid(child_obj)
-            if child_uid in processed_uids: continue
+            if child_uid in processed_uids:
+                continue
+
             is_dict = isinstance(child_obj, dict)
-            metadata = child_obj['metadata'] if is_dict else child_obj.metadata
-            owner_refs = metadata.get('ownerReferences', []) if is_dict else (metadata.owner_references or [])
+            if is_dict:
+                metadata = child_obj['metadata']
+                owner_refs = metadata.get('ownerReferences', [])
+            else:
+                metadata = child_obj.metadata
+                if metadata.owner_references:
+                    owner_refs = metadata.owner_references
+                else:
+                    owner_refs = []
+
             for owner in owner_refs:
-                owner_uid = owner.get('uid') if isinstance(owner, dict) else owner.uid
+                is_owner_dict = isinstance(owner, dict)
+                if is_owner_dict:
+                    owner_uid = owner.get('uid')
+                else:
+                    owner_uid = owner.uid
+
                 if owner_uid == parent_uid:
                     discovery_queue.append(child_obj)
                     break
@@ -204,58 +246,121 @@ def discover_full_hierarchy(api_clients, namespace, release_name):
 def build_relationship_map(all_objects, filtered_objects, release_name, namespace):
     print("Building relationship map...")
     relationships = []
-    all_uids_to_objects = {get_object_uid(obj): obj for obj in all_objects}
-    filtered_uids = {get_object_uid(obj) for obj in filtered_objects}
-    uid_to_node_id = {uid: f"{get_object_kind(obj)}/{get_object_name(obj)}" for uid, obj in all_uids_to_objects.items()}
+
+    all_uids_to_objects = {}
+    for obj in all_objects:
+        all_uids_to_objects[get_object_uid(obj)] = obj
+
+    filtered_uids = set()
+    for obj in filtered_objects:
+        filtered_uids.add(get_object_uid(obj))
+
+    uid_to_node_id = {}
+    for uid, obj in all_uids_to_objects.items():
+        uid_to_node_id[uid] = f"{get_object_kind(obj)}/{get_object_name(obj)}"
+
     children_with_parents = set()
+
     def find_visible_parent_uid(child_obj):
         is_dict = isinstance(child_obj, dict)
-        metadata = child_obj['metadata'] if is_dict else child_obj.metadata
-        owner_refs = metadata.get('ownerReferences') if is_dict else metadata.owner_references
-        if not owner_refs: return None
-        current_owner_uid = owner_refs[0].get('uid') if isinstance(owner_refs[0], dict) else owner_refs[0].uid
+        if is_dict:
+            metadata = child_obj['metadata']
+            owner_refs = metadata.get('ownerReferences')
+        else:
+            metadata = child_obj.metadata
+            owner_refs = metadata.owner_references
+
+        if not owner_refs:
+            return None
+
+        owner_ref = owner_refs[0]
+        is_owner_ref_dict = isinstance(owner_ref, dict)
+        if is_owner_ref_dict:
+            current_owner_uid = owner_ref.get('uid')
+        else:
+            current_owner_uid = owner_ref.uid
+
         while current_owner_uid and current_owner_uid not in filtered_uids:
             parent_obj = all_uids_to_objects.get(current_owner_uid)
             if not parent_obj:
                 current_owner_uid = None
                 break
+
             is_parent_dict = isinstance(parent_obj, dict)
-            parent_metadata = parent_obj['metadata'] if is_parent_dict else parent_obj.metadata
-            parent_owner_refs = parent_metadata.get('ownerReferences') if is_parent_dict else parent_metadata.owner_references
+            if is_parent_dict:
+                parent_metadata = parent_obj['metadata']
+                parent_owner_refs = parent_metadata.get('ownerReferences')
+            else:
+                parent_metadata = parent_obj.metadata
+                parent_owner_refs = parent_metadata.owner_references
+
             if parent_owner_refs:
-                current_owner_uid = parent_owner_refs[0].get('uid') if isinstance(parent_owner_refs[0], dict) else parent_owner_refs[0].uid
+                parent_owner_ref = parent_owner_refs[0]
+                is_parent_owner_ref_dict = isinstance(parent_owner_ref, dict)
+                if is_parent_owner_ref_dict:
+                    current_owner_uid = parent_owner_ref.get('uid')
+                else:
+                    current_owner_uid = parent_owner_ref.uid
             else:
                 current_owner_uid = None
         return current_owner_uid
+
     for obj in filtered_objects:
         child_id = uid_to_node_id.get(get_object_uid(obj))
-        if not child_id: continue
+        if not child_id:
+            continue
+
         parent_id = None
         visible_parent_uid = find_visible_parent_uid(obj)
         if visible_parent_uid:
-             parent_id = uid_to_node_id.get(visible_parent_uid)
+            parent_id = uid_to_node_id.get(visible_parent_uid)
+
         child_kind = get_object_kind(obj)
         if not parent_id and child_kind == 'ApigeeDeployment':
             spec = get_object_spec(obj)
             if spec and 'env' in spec:
                 potential_parent_node_id = f"ApigeeEnvironment/{spec['env']}"
-                if any(uid_to_node_id.get(uid) == potential_parent_node_id for uid in filtered_uids):
+                parent_found = False
+                for uid in filtered_uids:
+                    if uid_to_node_id.get(uid) == potential_parent_node_id:
+                        parent_found = True
+                        break
+                if parent_found:
                     parent_id = potential_parent_node_id
+
         if parent_id:
             relationships.append((parent_id, child_id))
             children_with_parents.add(child_id)
+
     for obj in filtered_objects:
         child_id = uid_to_node_id.get(get_object_uid(obj))
-        if not child_id or child_id in children_with_parents: continue
+        if not child_id or child_id in children_with_parents:
+            continue
+
         is_dict = isinstance(obj, dict)
-        metadata = obj['metadata'] if is_dict else obj.metadata
-        annotations = metadata.get('annotations') if is_dict else metadata.annotations
-        if annotations and (annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name and
-                           annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace):
-            parent_id = f'Helm Release: {release_name}'
-            relationships.append((parent_id, child_id))
+        if is_dict:
+            metadata = obj['metadata']
+            annotations = metadata.get('annotations')
+        else:
+            metadata = obj.metadata
+            annotations = metadata.annotations
+
+        if annotations:
+            is_release_match = annotations.get(HELM_ANNOTATION_RELEASE_NAME) == release_name
+            is_namespace_match = annotations.get(HELM_ANNOTATION_RELEASE_NAMESPACE) == namespace
+            if is_release_match and is_namespace_match:
+                parent_id = f'Helm Release: {release_name}'
+                relationships.append((parent_id, child_id))
+
     return relationships
 
+
+def sanitize_node_id(node_id_str):
+    sanitized = ""
+    for char in node_id_str:
+        if char.isalnum():
+            sanitized += char
+    return sanitized
 
 def generate_mermaid_diagram(relationships, release_name):
     """
@@ -264,16 +369,14 @@ def generate_mermaid_diagram(relationships, release_name):
     print("Generating Mermaid diagram with color-coded kinds...")
     mermaid_lines = ["graph TD;"]
 
-    # --- Phase 1: Define all style classes ---
     for style_class in STYLE_DEFINITIONS.values():
         mermaid_lines.append(f'    {style_class}')
-    mermaid_lines.append("") # Add a blank line for readability
+    mermaid_lines.append("")
 
-    # --- Phase 2: Collect and declare all unique nodes ---
-    all_nodes = {} # Use a dict to store sanitized_id -> label
+    all_nodes = {}
     for owner_id, child_id in relationships:
-        owner_node = "".join(filter(str.isalnum, owner_id))
-        child_node = "".join(filter(str.isalnum, child_id))
+        owner_node = sanitize_node_id(owner_id)
+        child_node = sanitize_node_id(child_id)
         if owner_node not in all_nodes:
             all_nodes[owner_node] = owner_id
         if child_node not in all_nodes:
@@ -281,11 +384,10 @@ def generate_mermaid_diagram(relationships, release_name):
     
     for node_id, node_label in all_nodes.items():
          mermaid_lines.append(f'    {node_id}["{node_label}"]')
-    mermaid_lines.append("") # Add a blank line for readability
+    mermaid_lines.append("")
 
-    # --- Phase 3: Apply style class to each node ---
     for node_id, node_label in all_nodes.items():
-        style_group = "default" # Fallback style
+        style_group = "default"
         if node_label.startswith("Helm Release:"):
             style_group = "helm"
         else:
@@ -294,12 +396,11 @@ def generate_mermaid_diagram(relationships, release_name):
                 style_group = KIND_TO_STYLE_GROUP[kind]
         
         mermaid_lines.append(f'    class {node_id} {style_group};')
-    mermaid_lines.append("") # Add a blank line for readability
+    mermaid_lines.append("")
 
-    # --- Phase 4: Draw all the relationship arrows ---
     for owner_id, child_id in relationships:
-        owner_node = "".join(filter(str.isalnum, owner_id))
-        child_node = "".join(filter(str.isalnum, child_id))
+        owner_node = sanitize_node_id(owner_id)
+        child_node = sanitize_node_id(child_id)
         mermaid_lines.append(f"    {owner_node} --> {child_node}")
 
     return "\n".join(mermaid_lines)
@@ -343,11 +444,22 @@ def main():
         print("No filters applied. Including all discovered objects.")
         filtered_objects = all_related_objects
     else:
+        print("Applying filters to discovered objects...")
         for obj in all_related_objects:
             kind = get_object_kind(obj)
-            if include_set and kind not in include_set: continue
-            if kind in exclude_set: continue
-            filtered_objects.append(obj)
+            
+            should_include = True
+
+            if include_set:
+                if kind not in include_set:
+                    should_include = False
+            
+            if should_include:
+                if kind in exclude_set:
+                    should_include = False
+
+            if should_include:
+                filtered_objects.append(obj)
         print(f"Filters applied. {len(filtered_objects)} objects remaining for diagram.")
 
     relationships = build_relationship_map(all_related_objects, filtered_objects, args.release_name, args.namespace)

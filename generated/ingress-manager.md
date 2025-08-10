@@ -4,47 +4,58 @@ Identifying seed objects for release 'ingress-manager'...
 Starting recursive discovery from seed objects...
 
 Discovery complete. Found a total of 11 related objects.
+Filters applied. 11 objects remaining for diagram.
 Building relationship map...
-Generating Mermaid diagram...
-#### Release ingress-manager -> Namespace apigee
+Generating Mermaid diagram with color-coded kinds...
+
+#### Release: ingress-manager | Namespace: apigee
 ```mermaid
 graph TD;
-    classDef helm fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef primitive fill:#d4edda,stroke:#155724,stroke-width:1px;
-    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px;
+    classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef workload fill:#cce5ff,stroke:#004085,stroke-width:1px,color:#000
+    classDef network fill:#d4edda,stroke:#155724,stroke-width:1px,color:#000
+    classDef config fill:#e2e3e5,stroke:#383d41,stroke-width:1px,color:#000
+    classDef rbac fill:#f8d7da,stroke:#721c24,stroke-width:1px,color:#000
+    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px,color:#000
+    classDef cert_manager_crd fill:#d1ecf1,stroke:#0c5460,stroke-width:2px,color:#000
+    classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
+
     Deploymentapigeeingressgatewaymanager["Deployment/apigee-ingressgateway-manager"]
-    class Deploymentapigeeingressgatewaymanager primitive;
     ReplicaSetapigeeingressgatewaymanager54b5799f4d["ReplicaSet/apigee-ingressgateway-manager-54b5799f4d"]
-    class ReplicaSetapigeeingressgatewaymanager54b5799f4d primitive;
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager54b5799f4d
     ReplicaSetapigeeingressgatewaymanager5967c955ff["ReplicaSet/apigee-ingressgateway-manager-5967c955ff"]
-    class ReplicaSetapigeeingressgatewaymanager5967c955ff primitive;
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
     Podapigeeingressgatewaymanager54b5799f4d7gchs["Pod/apigee-ingressgateway-manager-54b5799f4d-7gchs"]
-    class Podapigeeingressgatewaymanager54b5799f4d7gchs primitive;
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4d7gchs
     Podapigeeingressgatewaymanager54b5799f4dhbwth["Pod/apigee-ingressgateway-manager-54b5799f4d-hbwth"]
-    class Podapigeeingressgatewaymanager54b5799f4dhbwth primitive;
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4dhbwth
     HelmReleaseingressmanager["Helm Release: ingress-manager"]
-    class HelmReleaseingressmanager helm;
-    HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
     Serviceapigeeingressgatewaymanager["Service/apigee-ingressgateway-manager"]
-    class Serviceapigeeingressgatewaymanager primitive;
-    HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager
     ConfigMapapigeeenvoyfilters["ConfigMap/apigee-envoyfilters"]
-    class ConfigMapapigeeenvoyfilters primitive;
-    HelmReleaseingressmanager --> ConfigMapapigeeenvoyfilters
     ConfigMapapigeeistiomeshconfig["ConfigMap/apigee-istio-mesh-config"]
-    class ConfigMapapigeeistiomeshconfig primitive;
-    HelmReleaseingressmanager --> ConfigMapapigeeistiomeshconfig
     ServiceAccountapigeeingressgateway["ServiceAccount/apigee-ingressgateway"]
-    class ServiceAccountapigeeingressgateway primitive;
-    HelmReleaseingressmanager --> ServiceAccountapigeeingressgateway
     ServiceAccountapigeeingressgatewaymanager["ServiceAccount/apigee-ingressgateway-manager"]
-    class ServiceAccountapigeeingressgatewaymanager primitive;
-    HelmReleaseingressmanager --> ServiceAccountapigeeingressgatewaymanager
     Certificateapigeeistiod["Certificate/apigee-istiod"]
-    class Certificateapigeeistiod primitive;
+
+    class Deploymentapigeeingressgatewaymanager workload;
+    class ReplicaSetapigeeingressgatewaymanager54b5799f4d workload;
+    class ReplicaSetapigeeingressgatewaymanager5967c955ff workload;
+    class Podapigeeingressgatewaymanager54b5799f4d7gchs workload;
+    class Podapigeeingressgatewaymanager54b5799f4dhbwth workload;
+    class HelmReleaseingressmanager helm;
+    class Serviceapigeeingressgatewaymanager network;
+    class ConfigMapapigeeenvoyfilters config;
+    class ConfigMapapigeeistiomeshconfig config;
+    class ServiceAccountapigeeingressgateway rbac;
+    class ServiceAccountapigeeingressgatewaymanager rbac;
+    class Certificateapigeeistiod cert_manager_crd;
+
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager54b5799f4d
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
+    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4d7gchs
+    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4dhbwth
+    HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
+    HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager
+    HelmReleaseingressmanager --> ConfigMapapigeeenvoyfilters
+    HelmReleaseingressmanager --> ConfigMapapigeeistiomeshconfig
+    HelmReleaseingressmanager --> ServiceAccountapigeeingressgateway
+    HelmReleaseingressmanager --> ServiceAccountapigeeingressgatewaymanager
     HelmReleaseingressmanager --> Certificateapigeeistiod
 ```

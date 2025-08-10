@@ -4,65 +4,76 @@ Identifying seed objects for release 'redis'...
 Starting recursive discovery from seed objects...
 
 Discovery complete. Found a total of 17 related objects.
+Filters applied. 17 objects remaining for diagram.
 Building relationship map...
-Generating Mermaid diagram...
-#### Release redis -> Namespace apigee
+Generating Mermaid diagram with color-coded kinds...
+
+#### Release: redis | Namespace: apigee
 ```mermaid
 graph TD;
-    classDef helm fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef primitive fill:#d4edda,stroke:#155724,stroke-width:1px;
-    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px;
+    classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef workload fill:#cce5ff,stroke:#004085,stroke-width:1px,color:#000
+    classDef network fill:#d4edda,stroke:#155724,stroke-width:1px,color:#000
+    classDef config fill:#e2e3e5,stroke:#383d41,stroke-width:1px,color:#000
+    classDef rbac fill:#f8d7da,stroke:#721c24,stroke-width:1px,color:#000
+    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px,color:#000
+    classDef cert_manager_crd fill:#d1ecf1,stroke:#0c5460,stroke-width:2px,color:#000
+    classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
+
     ApigeeRedisdefault["ApigeeRedis/default"]
-    class ApigeeRedisdefault apigee_crd;
     StatefulSetapigeeredisdefault["StatefulSet/apigee-redis-default"]
-    class StatefulSetapigeeredisdefault primitive;
-    ApigeeRedisdefault --> StatefulSetapigeeredisdefault
     Serviceapigeeredisdefault["Service/apigee-redis-default"]
-    class Serviceapigeeredisdefault primitive;
-    ApigeeRedisdefault --> Serviceapigeeredisdefault
     ConfigMapapigeeredisenvoystaticconfig["ConfigMap/apigee-redis-envoy-static-config"]
-    class ConfigMapapigeeredisenvoystaticconfig primitive;
-    ApigeeRedisdefault --> ConfigMapapigeeredisenvoystaticconfig
     Secretapigeeredisconfig["Secret/apigee-redis-config"]
-    class Secretapigeeredisconfig primitive;
-    ApigeeRedisdefault --> Secretapigeeredisconfig
     Secretapigeeredisdefaultcredsce6e0e["Secret/apigee-redis-default-creds-ce6e0e"]
-    class Secretapigeeredisdefaultcredsce6e0e primitive;
-    ApigeeRedisdefault --> Secretapigeeredisdefaultcredsce6e0e
     ServiceAccountapigeeredisdefault["ServiceAccount/apigee-redis-default"]
-    class ServiceAccountapigeeredisdefault primitive;
-    ApigeeRedisdefault --> ServiceAccountapigeeredisdefault
     ServiceAccountapigeeredisenvoydefault["ServiceAccount/apigee-redis-envoy-default"]
-    class ServiceAccountapigeeredisenvoydefault primitive;
-    ApigeeRedisdefault --> ServiceAccountapigeeredisenvoydefault
-    ApigeeDeploymentapigeeredisenvoydefault["ApigeeDeployment/apigee-redis-envoy-default"]
-    class ApigeeDeploymentapigeeredisenvoydefault apigee_crd;
-    ApigeeRedisdefault --> ApigeeDeploymentapigeeredisenvoydefault
     Certificateapigeeredisdefault["Certificate/apigee-redis-default"]
-    class Certificateapigeeredisdefault primitive;
-    ApigeeRedisdefault --> Certificateapigeeredisdefault
     Certificateapigeeredisenvoydefault["Certificate/apigee-redis-envoy-default"]
-    class Certificateapigeeredisenvoydefault primitive;
-    ApigeeRedisdefault --> Certificateapigeeredisenvoydefault
+    ApigeeDeploymentapigeeredisenvoydefault["ApigeeDeployment/apigee-redis-envoy-default"]
     Podapigeeredisdefault0["Pod/apigee-redis-default-0"]
-    class Podapigeeredisdefault0 primitive;
-    StatefulSetapigeeredisdefault --> Podapigeeredisdefault0
     Podapigeeredisdefault1["Pod/apigee-redis-default-1"]
-    class Podapigeeredisdefault1 primitive;
-    StatefulSetapigeeredisdefault --> Podapigeeredisdefault1
     ReplicaSetapigeeredisenvoydefault1150vvwgv["ReplicaSet/apigee-redis-envoy-default-1150-vvwgv"]
-    class ReplicaSetapigeeredisenvoydefault1150vvwgv primitive;
-    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150vvwgv
     Serviceapigeeredisenvoydefault["Service/apigee-redis-envoy-default"]
-    class Serviceapigeeredisenvoydefault primitive;
-    ApigeeDeploymentapigeeredisenvoydefault --> Serviceapigeeredisenvoydefault
     Podapigeeredisenvoydefault1150vvwgv4gbtx["Pod/apigee-redis-envoy-default-1150-vvwgv-4gbtx"]
-    class Podapigeeredisenvoydefault1150vvwgv4gbtx primitive;
-    ReplicaSetapigeeredisenvoydefault1150vvwgv --> Podapigeeredisenvoydefault1150vvwgv4gbtx
     HelmReleaseredis["Helm Release: redis"]
-    class HelmReleaseredis helm;
     Secretapigeeredisdefaultcreds["Secret/apigee-redis-default-creds"]
-    class Secretapigeeredisdefaultcreds primitive;
+
+    class ApigeeRedisdefault apigee_crd;
+    class StatefulSetapigeeredisdefault workload;
+    class Serviceapigeeredisdefault network;
+    class ConfigMapapigeeredisenvoystaticconfig config;
+    class Secretapigeeredisconfig config;
+    class Secretapigeeredisdefaultcredsce6e0e config;
+    class ServiceAccountapigeeredisdefault rbac;
+    class ServiceAccountapigeeredisenvoydefault rbac;
+    class Certificateapigeeredisdefault cert_manager_crd;
+    class Certificateapigeeredisenvoydefault cert_manager_crd;
+    class ApigeeDeploymentapigeeredisenvoydefault apigee_crd;
+    class Podapigeeredisdefault0 workload;
+    class Podapigeeredisdefault1 workload;
+    class ReplicaSetapigeeredisenvoydefault1150vvwgv workload;
+    class Serviceapigeeredisenvoydefault network;
+    class Podapigeeredisenvoydefault1150vvwgv4gbtx workload;
+    class HelmReleaseredis helm;
+    class Secretapigeeredisdefaultcreds config;
+
+    ApigeeRedisdefault --> StatefulSetapigeeredisdefault
+    ApigeeRedisdefault --> Serviceapigeeredisdefault
+    ApigeeRedisdefault --> ConfigMapapigeeredisenvoystaticconfig
+    ApigeeRedisdefault --> Secretapigeeredisconfig
+    ApigeeRedisdefault --> Secretapigeeredisdefaultcredsce6e0e
+    ApigeeRedisdefault --> ServiceAccountapigeeredisdefault
+    ApigeeRedisdefault --> ServiceAccountapigeeredisenvoydefault
+    ApigeeRedisdefault --> Certificateapigeeredisdefault
+    ApigeeRedisdefault --> Certificateapigeeredisenvoydefault
+    ApigeeRedisdefault --> ApigeeDeploymentapigeeredisenvoydefault
+    StatefulSetapigeeredisdefault --> Podapigeeredisdefault0
+    StatefulSetapigeeredisdefault --> Podapigeeredisdefault1
+    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150vvwgv
+    ApigeeDeploymentapigeeredisenvoydefault --> Serviceapigeeredisenvoydefault
+    ReplicaSetapigeeredisenvoydefault1150vvwgv --> Podapigeeredisenvoydefault1150vvwgv4gbtx
     HelmReleaseredis --> Secretapigeeredisdefaultcreds
     HelmReleaseredis --> ApigeeRedisdefault
 ```

@@ -10,5 +10,6 @@ do
         -n "$APIGEE_NS" \
         "$helm_release" \
         --md-format \
-        --deep-discovery > "$GEN_DIR/$helm_release.md"
+        --deep-discovery > "$GEN_DIR/$helm_release.md" \
+        --exclude-kinds Role RoleBinding ClusterRole ClusterRoleBinding
 done

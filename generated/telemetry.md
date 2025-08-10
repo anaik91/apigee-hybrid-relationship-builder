@@ -4,92 +4,97 @@ Identifying seed objects for release 'telemetry'...
 Starting recursive discovery from seed objects...
 
 Discovery complete. Found a total of 26 related objects.
+Filters applied. 24 objects remaining for diagram.
 Building relationship map...
-Generating Mermaid diagram...
-#### Release telemetry -> Namespace apigee
+Generating Mermaid diagram with color-coded kinds...
+
+#### Release: telemetry | Namespace: apigee
 ```mermaid
 graph TD;
-    classDef helm fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef primitive fill:#d4edda,stroke:#155724,stroke-width:1px;
-    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px;
+    classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef workload fill:#cce5ff,stroke:#004085,stroke-width:1px,color:#000
+    classDef network fill:#d4edda,stroke:#155724,stroke-width:1px,color:#000
+    classDef config fill:#e2e3e5,stroke:#383d41,stroke-width:1px,color:#000
+    classDef rbac fill:#f8d7da,stroke:#721c24,stroke-width:1px,color:#000
+    classDef apigee_crd fill:#fff3cd,stroke:#856404,stroke-width:2px,color:#000
+    classDef cert_manager_crd fill:#d1ecf1,stroke:#0c5460,stroke-width:2px,color:#000
+    classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
+
     ApigeeTelemetryapigeetelemetry["ApigeeTelemetry/apigee-telemetry"]
-    class ApigeeTelemetryapigeetelemetry apigee_crd;
     DaemonSetapigeeloggerapigeetelemetry["DaemonSet/apigee-logger-apigee-telemetry"]
-    class DaemonSetapigeeloggerapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> DaemonSetapigeeloggerapigeetelemetry
     ConfigMapapigeeloggerapigeetelemetry["ConfigMap/apigee-logger-apigee-telemetry"]
-    class ConfigMapapigeeloggerapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeeloggerapigeetelemetry
     ConfigMapapigeemetricsadapterapigeetelemetry["ConfigMap/apigee-metrics-adapter-apigee-telemetry"]
-    class ConfigMapapigeemetricsadapterapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeemetricsadapterapigeetelemetry
     ConfigMapapigeemetricsapigeetelemetryapp["ConfigMap/apigee-metrics-apigee-telemetry-app"]
-    class ConfigMapapigeemetricsapigeetelemetryapp primitive;
-    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeemetricsapigeetelemetryapp
     ConfigMapapigeeopentelemetrycollectorapigeetelemetry["ConfigMap/apigee-open-telemetry-collector-apigee-telemetry"]
-    class ConfigMapapigeeopentelemetrycollectorapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeeopentelemetrycollectorapigeetelemetry
     ServiceAccountapigeeloggerapigeetelemetry["ServiceAccount/apigee-logger-apigee-telemetry"]
-    class ServiceAccountapigeeloggerapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeeloggerapigeetelemetry
     ServiceAccountapigeemetricsapigeetelemetry["ServiceAccount/apigee-metrics-apigee-telemetry"]
-    class ServiceAccountapigeemetricsapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeemetricsapigeetelemetry
     ServiceAccountapigeeopentelemetrycollectorapigeetelemetry["ServiceAccount/apigee-open-telemetry-collector-apigee-telemetry"]
-    class ServiceAccountapigeeopentelemetrycollectorapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeeopentelemetrycollectorapigeetelemetry
-    Roleapigeeopentelemetrycollectorapigeetelemetry["Role/apigee-open-telemetry-collector-apigee-telemetry"]
-    class Roleapigeeopentelemetrycollectorapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> Roleapigeeopentelemetrycollectorapigeetelemetry
-    RoleBindingapigeeopentelemetrycollectorapigeetelemetry["RoleBinding/apigee-open-telemetry-collector-apigee-telemetry"]
-    class RoleBindingapigeeopentelemetrycollectorapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> RoleBindingapigeeopentelemetrycollectorapigeetelemetry
-    ApigeeDeploymentapigeemetricsadapterapigeetelemetry["ApigeeDeployment/apigee-metrics-adapter-apigee-telemetry"]
-    class ApigeeDeploymentapigeemetricsadapterapigeetelemetry apigee_crd;
-    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeemetricsadapterapigeetelemetry
-    ApigeeDeploymentapigeemetricsapigeetelemetryapp["ApigeeDeployment/apigee-metrics-apigee-telemetry-app"]
-    class ApigeeDeploymentapigeemetricsapigeetelemetryapp apigee_crd;
-    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeemetricsapigeetelemetryapp
-    ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry["ApigeeDeployment/apigee-open-telemetry-collector-apigee-telemetry"]
-    class ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry apigee_crd;
-    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry
     Certificateapigeemetricsadapterapigeetelemetry["Certificate/apigee-metrics-adapter-apigee-telemetry"]
-    class Certificateapigeemetricsadapterapigeetelemetry primitive;
-    ApigeeTelemetryapigeetelemetry --> Certificateapigeemetricsadapterapigeetelemetry
+    ApigeeDeploymentapigeemetricsadapterapigeetelemetry["ApigeeDeployment/apigee-metrics-adapter-apigee-telemetry"]
+    ApigeeDeploymentapigeemetricsapigeetelemetryapp["ApigeeDeployment/apigee-metrics-apigee-telemetry-app"]
+    ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry["ApigeeDeployment/apigee-open-telemetry-collector-apigee-telemetry"]
     Podapigeeloggerapigeetelemetry476qv["Pod/apigee-logger-apigee-telemetry-476qv"]
-    class Podapigeeloggerapigeetelemetry476qv primitive;
-    DaemonSetapigeeloggerapigeetelemetry --> Podapigeeloggerapigeetelemetry476qv
     Podapigeeloggerapigeetelemetrysz769["Pod/apigee-logger-apigee-telemetry-sz769"]
-    class Podapigeeloggerapigeetelemetrysz769 primitive;
-    DaemonSetapigeeloggerapigeetelemetry --> Podapigeeloggerapigeetelemetrysz769
     ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9["ReplicaSet/apigee-metrics-adapter-apigee-telemetry-1150-bntz9"]
-    class ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9 primitive;
-    ApigeeDeploymentapigeemetricsadapterapigeetelemetry --> ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9
     Serviceapigeemetricsadapterapigeetelemetry["Service/apigee-metrics-adapter-apigee-telemetry"]
-    class Serviceapigeemetricsadapterapigeetelemetry primitive;
-    ApigeeDeploymentapigeemetricsadapterapigeetelemetry --> Serviceapigeemetricsadapterapigeetelemetry
     ReplicaSetapigeemetricsapigeetelemetryapp11507iavb["ReplicaSet/apigee-metrics-apigee-telemetry-app-1150-7iavb"]
-    class ReplicaSetapigeemetricsapigeetelemetryapp11507iavb primitive;
-    ApigeeDeploymentapigeemetricsapigeetelemetryapp --> ReplicaSetapigeemetricsapigeetelemetryapp11507iavb
     Serviceapigeemetricsapigeetelemetryapp["Service/apigee-metrics-apigee-telemetry-app"]
-    class Serviceapigeemetricsapigeetelemetryapp primitive;
-    ApigeeDeploymentapigeemetricsapigeetelemetryapp --> Serviceapigeemetricsapigeetelemetryapp
     DaemonSetapigeeopentelemetrycollectorapigeetelemetry["DaemonSet/apigee-open-telemetry-collector-apigee-telemetry"]
-    class DaemonSetapigeeopentelemetrycollectorapigeetelemetry primitive;
-    ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry --> DaemonSetapigeeopentelemetrycollectorapigeetelemetry
     Podapigeemetricsadapterapigeetelemetry1150bntz9lvxcd["Pod/apigee-metrics-adapter-apigee-telemetry-1150-bntz9-lvxcd"]
-    class Podapigeemetricsadapterapigeetelemetry1150bntz9lvxcd primitive;
-    ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9 --> Podapigeemetricsadapterapigeetelemetry1150bntz9lvxcd
     Podapigeemetricsapigeetelemetryapp11507iavbppqst["Pod/apigee-metrics-apigee-telemetry-app-1150-7iavb-ppqst"]
-    class Podapigeemetricsapigeetelemetryapp11507iavbppqst primitive;
-    ReplicaSetapigeemetricsapigeetelemetryapp11507iavb --> Podapigeemetricsapigeetelemetryapp11507iavbppqst
     Podapigeeopentelemetrycollectorapigeetelemetrydpxs8["Pod/apigee-open-telemetry-collector-apigee-telemetry-dpxs8"]
-    class Podapigeeopentelemetrycollectorapigeetelemetrydpxs8 primitive;
-    DaemonSetapigeeopentelemetrycollectorapigeetelemetry --> Podapigeeopentelemetrycollectorapigeetelemetrydpxs8
     Podapigeeopentelemetrycollectorapigeetelemetryvtlhs["Pod/apigee-open-telemetry-collector-apigee-telemetry-vtlhs"]
-    class Podapigeeopentelemetrycollectorapigeetelemetryvtlhs primitive;
-    DaemonSetapigeeopentelemetrycollectorapigeetelemetry --> Podapigeeopentelemetrycollectorapigeetelemetryvtlhs
     HelmReleasetelemetry["Helm Release: telemetry"]
+
+    class ApigeeTelemetryapigeetelemetry apigee_crd;
+    class DaemonSetapigeeloggerapigeetelemetry workload;
+    class ConfigMapapigeeloggerapigeetelemetry config;
+    class ConfigMapapigeemetricsadapterapigeetelemetry config;
+    class ConfigMapapigeemetricsapigeetelemetryapp config;
+    class ConfigMapapigeeopentelemetrycollectorapigeetelemetry config;
+    class ServiceAccountapigeeloggerapigeetelemetry rbac;
+    class ServiceAccountapigeemetricsapigeetelemetry rbac;
+    class ServiceAccountapigeeopentelemetrycollectorapigeetelemetry rbac;
+    class Certificateapigeemetricsadapterapigeetelemetry cert_manager_crd;
+    class ApigeeDeploymentapigeemetricsadapterapigeetelemetry apigee_crd;
+    class ApigeeDeploymentapigeemetricsapigeetelemetryapp apigee_crd;
+    class ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry apigee_crd;
+    class Podapigeeloggerapigeetelemetry476qv workload;
+    class Podapigeeloggerapigeetelemetrysz769 workload;
+    class ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9 workload;
+    class Serviceapigeemetricsadapterapigeetelemetry network;
+    class ReplicaSetapigeemetricsapigeetelemetryapp11507iavb workload;
+    class Serviceapigeemetricsapigeetelemetryapp network;
+    class DaemonSetapigeeopentelemetrycollectorapigeetelemetry workload;
+    class Podapigeemetricsadapterapigeetelemetry1150bntz9lvxcd workload;
+    class Podapigeemetricsapigeetelemetryapp11507iavbppqst workload;
+    class Podapigeeopentelemetrycollectorapigeetelemetrydpxs8 workload;
+    class Podapigeeopentelemetrycollectorapigeetelemetryvtlhs workload;
     class HelmReleasetelemetry helm;
+
+    ApigeeTelemetryapigeetelemetry --> DaemonSetapigeeloggerapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeeloggerapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeemetricsadapterapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeemetricsapigeetelemetryapp
+    ApigeeTelemetryapigeetelemetry --> ConfigMapapigeeopentelemetrycollectorapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeeloggerapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeemetricsapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ServiceAccountapigeeopentelemetrycollectorapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> Certificateapigeemetricsadapterapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeemetricsadapterapigeetelemetry
+    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeemetricsapigeetelemetryapp
+    ApigeeTelemetryapigeetelemetry --> ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry
+    DaemonSetapigeeloggerapigeetelemetry --> Podapigeeloggerapigeetelemetry476qv
+    DaemonSetapigeeloggerapigeetelemetry --> Podapigeeloggerapigeetelemetrysz769
+    ApigeeDeploymentapigeemetricsadapterapigeetelemetry --> ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9
+    ApigeeDeploymentapigeemetricsadapterapigeetelemetry --> Serviceapigeemetricsadapterapigeetelemetry
+    ApigeeDeploymentapigeemetricsapigeetelemetryapp --> ReplicaSetapigeemetricsapigeetelemetryapp11507iavb
+    ApigeeDeploymentapigeemetricsapigeetelemetryapp --> Serviceapigeemetricsapigeetelemetryapp
+    ApigeeDeploymentapigeeopentelemetrycollectorapigeetelemetry --> DaemonSetapigeeopentelemetrycollectorapigeetelemetry
+    ReplicaSetapigeemetricsadapterapigeetelemetry1150bntz9 --> Podapigeemetricsadapterapigeetelemetry1150bntz9lvxcd
+    ReplicaSetapigeemetricsapigeetelemetryapp11507iavb --> Podapigeemetricsapigeetelemetryapp11507iavbppqst
+    DaemonSetapigeeopentelemetrycollectorapigeetelemetry --> Podapigeeopentelemetrycollectorapigeetelemetrydpxs8
+    DaemonSetapigeeopentelemetrycollectorapigeetelemetry --> Podapigeeopentelemetrycollectorapigeetelemetryvtlhs
     HelmReleasetelemetry --> ApigeeTelemetryapigeetelemetry
 ```

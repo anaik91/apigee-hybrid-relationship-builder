@@ -24,5 +24,5 @@ do
         --md-format \
         --exclude-kinds Role RoleBinding ClusterRole ClusterRoleBinding > "$GEN_DIR/$chart_name-shallow.md"
     # mmdc : https://github.com/mermaid-js/mermaid-cli
-    mmdc -i "$GEN_DIR/$chart_name-deep.md" -o "$GEN_DIR/svg/$chart_name-shallow.svg"
+    mmdc -i "$GEN_DIR/$chart_name-shallow.md" -o "$GEN_DIR/svg/$chart_name-shallow.svg"
 done

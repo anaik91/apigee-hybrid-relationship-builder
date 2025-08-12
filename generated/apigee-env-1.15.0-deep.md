@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'dev'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 17 related objects.
+Discovery complete. Found a total of 21 related objects.
 Applying filters to discovered objects...
-Filters applied. 17 objects remaining for diagram.
+Filters applied. 21 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -38,6 +38,10 @@ graph TD;
     Serviceapigeesynchronizercicloudspannedevda008e1["Service/apigee-synchronizer-ci-cloud-spanne-dev-da008e1"]
     Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr["Pod/apigee-runtime-ci-cloud-spanne-dev-da008e1-1150-gxh0z-nx4tr"]
     Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr2xqr7"]
+    Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr42ltk"]
+    Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr57zn6"]
+    Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltrq6z45"]
+    Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltrq89h4"]
     HelmReleasedev["Helm Release: dev"]
     Secretcicloudspannedevda008e1encryptionkeys["Secret/ci-cloud-spanne-dev-da008e1-encryption-keys"]
 
@@ -57,6 +61,10 @@ graph TD;
     class Serviceapigeesynchronizercicloudspannedevda008e1 network;
     class Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr workload;
     class Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7 workload;
+    class Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk workload;
+    class Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6 workload;
+    class Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45 workload;
+    class Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4 workload;
     class HelmReleasedev helm;
     class Secretcicloudspannedevda008e1encryptionkeys config;
 
@@ -75,6 +83,10 @@ graph TD;
     ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1 --> Serviceapigeesynchronizercicloudspannedevda008e1
     ReplicaSetapigeeruntimecicloudspannedevda008e11150gxh0z --> Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr
     ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7
+    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk
+    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6
+    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45
+    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4
     HelmReleasedev --> Secretcicloudspannedevda008e1encryptionkeys
     HelmReleasedev --> ApigeeEnvironmentcicloudspannedevda008e1
 ```

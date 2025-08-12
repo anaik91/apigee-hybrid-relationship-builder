@@ -75,7 +75,5 @@ secrets.yaml
 
 # --- Generated Output (Optional) ---
 # If you save the Mermaid output to a file to generate an image
-*.png
-*.svg
 *.html
 diagram.md

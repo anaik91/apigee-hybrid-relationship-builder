@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'ci-cloud-spanner-c06d'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 57 related objects.
+Discovery complete. Found a total of 58 related objects.
 Applying filters to discovered objects...
-Filters applied. 51 objects remaining for diagram.
+Filters applied. 52 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -48,6 +48,7 @@ graph TD;
     ApigeeDeploymentapigeemartcicloudspanne660f3fb["ApigeeDeployment/apigee-mart-ci-cloud-spanne-660f3fb"]
     ApigeeDeploymentapigeeudcacicloudspanne660f3fb["ApigeeDeployment/apigee-udca-ci-cloud-spanne-660f3fb"]
     ApigeeDeploymentapigeewatchercicloudspanne660f3fb["ApigeeDeployment/apigee-watcher-ci-cloud-spanne-660f3fb"]
+    ApigeeIssuepermissiondenied["ApigeeIssue/permission-denied"]
     ReplicaSetapigeeconnectagentcicloudspanne660f3fb115023om3["ReplicaSet/apigee-connect-agent-ci-cloud-spanne-660f3fb-1150-23om3"]
     Serviceapigeeconnectagentcicloudspanne660f3fb["Service/apigee-connect-agent-ci-cloud-spanne-660f3fb"]
     ReplicaSetapigeeingressgatewayingresscicloudspanne660f3fb1150gosr8["ReplicaSet/apigee-ingressgateway-ingress-ci-cloud-spanne-660f3fb-1150-gosr8"]
@@ -101,6 +102,7 @@ graph TD;
     class ApigeeDeploymentapigeemartcicloudspanne660f3fb apigee_crd;
     class ApigeeDeploymentapigeeudcacicloudspanne660f3fb apigee_crd;
     class ApigeeDeploymentapigeewatchercicloudspanne660f3fb apigee_crd;
+    class ApigeeIssuepermissiondenied apigee_crd;
     class ReplicaSetapigeeconnectagentcicloudspanne660f3fb115023om3 workload;
     class Serviceapigeeconnectagentcicloudspanne660f3fb network;
     class ReplicaSetapigeeingressgatewayingresscicloudspanne660f3fb1150gosr8 workload;
@@ -153,6 +155,7 @@ graph TD;
     ApigeeOrganizationcicloudspanne660f3fb --> ApigeeDeploymentapigeemartcicloudspanne660f3fb
     ApigeeOrganizationcicloudspanne660f3fb --> ApigeeDeploymentapigeeudcacicloudspanne660f3fb
     ApigeeOrganizationcicloudspanne660f3fb --> ApigeeDeploymentapigeewatchercicloudspanne660f3fb
+    ApigeeOrganizationcicloudspanne660f3fb --> ApigeeIssuepermissiondenied
     ApigeeDeploymentapigeeconnectagentcicloudspanne660f3fb --> ReplicaSetapigeeconnectagentcicloudspanne660f3fb115023om3
     ApigeeDeploymentapigeeconnectagentcicloudspanne660f3fb --> Serviceapigeeconnectagentcicloudspanne660f3fb
     ApigeeDeploymentapigeeingressgatewayingresscicloudspanne660f3fb --> ReplicaSetapigeeingressgatewayingresscicloudspanne660f3fb1150gosr8

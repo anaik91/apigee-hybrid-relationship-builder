@@ -17,6 +17,7 @@ do
         --exclude-kinds Role RoleBinding ClusterRole ClusterRoleBinding > "$GEN_DIR/$chart_name-deep.md"
     # mmdc : https://github.com/mermaid-js/mermaid-cli
     mmdc -i "$GEN_DIR/$chart_name-deep.md" -o "$GEN_DIR/svg/$chart_name-deep.svg"
+    
     echo "Generating shallow discovery for release => $helm_release | chart_name => $chart_name"
     python3 generate_apigee_map.py \
         -n "$APIGEE_NS" \
@@ -25,4 +26,22 @@ do
         --exclude-kinds Role RoleBinding ClusterRole ClusterRoleBinding > "$GEN_DIR/$chart_name-shallow.md"
     # mmdc : https://github.com/mermaid-js/mermaid-cli
     mmdc -i "$GEN_DIR/$chart_name-shallow.md" -o "$GEN_DIR/svg/$chart_name-shallow.svg"
+
+    echo "Generating shallow discovery for release => $helm_release | chart_name => $chart_name"
+    python3 generate_apigee_map.py \
+        -n "$APIGEE_NS" \
+        "$helm_release" \
+        --md-format > "$GEN_DIR/$chart_name-shallow-all.md"
+    # mmdc : https://github.com/mermaid-js/mermaid-cli
+    mmdc -i "$GEN_DIR/$chart_name-shallow-all.md" -o "$GEN_DIR/svg/$chart_name-shallow-all.svg"
+
+    echo "Generating deep discovery for release => $helm_release | chart_name => $chart_name"
+    python3 generate_apigee_map.py \
+        -n "$APIGEE_NS" \
+        "$helm_release" \
+        --md-format \
+        --deep-discovery > "$GEN_DIR/$chart_name-deep-all.md"
+    # mmdc : https://github.com/mermaid-js/mermaid-cli
+    mmdc -i "$GEN_DIR/$chart_name-deep-all.md" -o "$GEN_DIR/svg/$chart_name-deep-all.svg"
+
 done

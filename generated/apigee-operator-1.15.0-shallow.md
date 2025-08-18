@@ -2,9 +2,9 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'operator'...
 
-Discovery complete. Found a total of 34 related objects.
+Discovery complete. Found a total of 35 related objects.
 Applying filters to discovered objects...
-Filters applied. 10 objects remaining for diagram.
+Filters applied. 11 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -32,6 +32,7 @@ graph TD;
     MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee["MutatingWebhookConfiguration/apigee-mutating-webhook-configuration-apigee"]
     ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee["ValidatingWebhookConfiguration/apigee-validating-webhook-configuration-apigee"]
     ClusterIssuerapigeecaissuer["ClusterIssuer/apigee-ca-issuer"]
+    ClusterIssuerapigeerootcertificateissuer["ClusterIssuer/apigee-root-certificate-issuer"]
 
     class Deploymentapigeecontrollermanager workload;
     class ReplicaSetapigeecontrollermanager76fcc5456f workload;
@@ -44,6 +45,7 @@ graph TD;
     class MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee webhook;
     class ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee webhook;
     class ClusterIssuerapigeecaissuer cert_manager_crd;
+    class ClusterIssuerapigeerootcertificateissuer cert_manager_crd;
 
     Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager76fcc5456f
     HelmReleaseoperator --> Deploymentapigeecontrollermanager
@@ -55,4 +57,5 @@ graph TD;
     HelmReleaseoperator --> MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee
     HelmReleaseoperator --> ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee
     HelmReleaseoperator --> ClusterIssuerapigeecaissuer
+    HelmReleaseoperator --> ClusterIssuerapigeerootcertificateissuer
 ```

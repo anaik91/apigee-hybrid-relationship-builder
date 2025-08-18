@@ -2,9 +2,9 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'dev'...
 
-Discovery complete. Found a total of 2 related objects.
+Discovery complete. Found a total of 5 related objects.
 Applying filters to discovered objects...
-Filters applied. 2 objects remaining for diagram.
+Filters applied. 5 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -22,13 +22,22 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     HelmReleasedev["Helm Release: dev"]
-    Secretcicloudspannedevda008e1encryptionkeys["Secret/ci-cloud-spanne-dev-da008e1-encryption-keys"]
-    ApigeeEnvironmentcicloudspannedevda008e1["ApigeeEnvironment/ci-cloud-spanne-dev-da008e1"]
+    Secretapigeehwdeve8f1e25encryptionkeys["Secret/apigee-hw-dev-e8f1e25-encryption-keys"]
+    Secretapigeeruntimeapigeehwdeve8f1e25svcaccount["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-svc-account"]
+    Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-svc-account"]
+    Secretapigeeudcaapigeehwdeve8f1e25svcaccount["Secret/apigee-udca-apigee-hw-dev-e8f1e25-svc-account"]
+    ApigeeEnvironmentapigeehwdeve8f1e25["ApigeeEnvironment/apigee-hw-dev-e8f1e25"]
 
     class HelmReleasedev helm;
-    class Secretcicloudspannedevda008e1encryptionkeys config;
-    class ApigeeEnvironmentcicloudspannedevda008e1 apigee_crd;
+    class Secretapigeehwdeve8f1e25encryptionkeys config;
+    class Secretapigeeruntimeapigeehwdeve8f1e25svcaccount config;
+    class Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount config;
+    class Secretapigeeudcaapigeehwdeve8f1e25svcaccount config;
+    class ApigeeEnvironmentapigeehwdeve8f1e25 apigee_crd;
 
-    HelmReleasedev --> Secretcicloudspannedevda008e1encryptionkeys
-    HelmReleasedev --> ApigeeEnvironmentcicloudspannedevda008e1
+    HelmReleasedev --> Secretapigeehwdeve8f1e25encryptionkeys
+    HelmReleasedev --> Secretapigeeruntimeapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> Secretapigeeudcaapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> ApigeeEnvironmentapigeehwdeve8f1e25
 ```

@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'redis'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 17 related objects.
+Discovery complete. Found a total of 18 related objects.
 Applying filters to discovered objects...
-Filters applied. 17 objects remaining for diagram.
+Filters applied. 18 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -35,9 +35,10 @@ graph TD;
     ApigeeDeploymentapigeeredisenvoydefault["ApigeeDeployment/apigee-redis-envoy-default"]
     Podapigeeredisdefault0["Pod/apigee-redis-default-0"]
     Podapigeeredisdefault1["Pod/apigee-redis-default-1"]
-    ReplicaSetapigeeredisenvoydefault1150vvwgv["ReplicaSet/apigee-redis-envoy-default-1150-vvwgv"]
+    V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv["V2HorizontalPodAutoscaler/apigee-redis-envoy-default-1150-cdkuv"]
+    ReplicaSetapigeeredisenvoydefault1150cdkuv["ReplicaSet/apigee-redis-envoy-default-1150-cdkuv"]
     Serviceapigeeredisenvoydefault["Service/apigee-redis-envoy-default"]
-    Podapigeeredisenvoydefault1150vvwgv4gbtx["Pod/apigee-redis-envoy-default-1150-vvwgv-4gbtx"]
+    Podapigeeredisenvoydefault1150cdkuv7mv5h["Pod/apigee-redis-envoy-default-1150-cdkuv-7mv5h"]
     HelmReleaseredis["Helm Release: redis"]
     Secretapigeeredisdefaultcreds["Secret/apigee-redis-default-creds"]
 
@@ -54,9 +55,10 @@ graph TD;
     class ApigeeDeploymentapigeeredisenvoydefault apigee_crd;
     class Podapigeeredisdefault0 workload;
     class Podapigeeredisdefault1 workload;
-    class ReplicaSetapigeeredisenvoydefault1150vvwgv workload;
+    class V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv workload;
+    class ReplicaSetapigeeredisenvoydefault1150cdkuv workload;
     class Serviceapigeeredisenvoydefault network;
-    class Podapigeeredisenvoydefault1150vvwgv4gbtx workload;
+    class Podapigeeredisenvoydefault1150cdkuv7mv5h workload;
     class HelmReleaseredis helm;
     class Secretapigeeredisdefaultcreds config;
 
@@ -72,9 +74,10 @@ graph TD;
     ApigeeRedisdefault --> ApigeeDeploymentapigeeredisenvoydefault
     StatefulSetapigeeredisdefault --> Podapigeeredisdefault0
     StatefulSetapigeeredisdefault --> Podapigeeredisdefault1
-    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150vvwgv
+    ApigeeDeploymentapigeeredisenvoydefault --> V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv
+    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150cdkuv
     ApigeeDeploymentapigeeredisenvoydefault --> Serviceapigeeredisenvoydefault
-    ReplicaSetapigeeredisenvoydefault1150vvwgv --> Podapigeeredisenvoydefault1150vvwgv4gbtx
+    ReplicaSetapigeeredisenvoydefault1150cdkuv --> Podapigeeredisenvoydefault1150cdkuv7mv5h
     HelmReleaseredis --> Secretapigeeredisdefaultcreds
     HelmReleaseredis --> ApigeeRedisdefault
 ```

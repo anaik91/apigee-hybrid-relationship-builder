@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'dev'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 21 related objects.
+Discovery complete. Found a total of 22 related objects.
 Applying filters to discovered objects...
-Filters applied. 21 objects remaining for diagram.
+Filters applied. 22 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -22,71 +22,74 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    ApigeeEnvironmentcicloudspannedevda008e1["ApigeeEnvironment/ci-cloud-spanne-dev-da008e1"]
-    ConfigMapapigeesynchronizercicloudspadevdggroupconfib809b91["ConfigMap/apigee-synchronizer-ci-cloud-spa-dev-dggroupconfi-b809b91"]
+    ApigeeEnvironmentapigeehwdeve8f1e25["ApigeeEnvironment/apigee-hw-dev-e8f1e25"]
+    ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141["ConfigMap/apigee-synchronizer-apigee-hw-dev-dggroupconfi-0cdf141"]
     ConfigMapapigeesynchronizerdevaddonmap["ConfigMap/apigee-synchronizer-dev-add-on-map"]
-    Secretapigeeruntimecicloudspannedevda008e1config74d732["Secret/apigee-runtime-ci-cloud-spanne-dev-da008e1-config-74d732"]
-    Secretapigeesynchronizercicloudspannedevda008e1configd0d6a3["Secret/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-config-d0d6a3"]
-    ServiceAccountapigeesynchronizercicloudspannedevda008e1["ServiceAccount/apigee-synchronizer-ci-cloud-spanne-dev-da008e1"]
-    Certificateapigeeruntimecicloudspannedevda008e1["Certificate/apigee-runtime-ci-cloud-spanne-dev-da008e1"]
-    Certificateapigeesynchronizercicloudspannedevda008e1["Certificate/apigee-synchronizer-ci-cloud-spanne-dev-da008e1"]
-    ApigeeDeploymentapigeeruntimecicloudspannedevda008e1["ApigeeDeployment/apigee-runtime-ci-cloud-spanne-dev-da008e1"]
-    ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1["ApigeeDeployment/apigee-synchronizer-ci-cloud-spanne-dev-da008e1"]
-    ReplicaSetapigeeruntimecicloudspannedevda008e11150gxh0z["ReplicaSet/apigee-runtime-ci-cloud-spanne-dev-da008e1-1150-gxh0z"]
-    Serviceapigeeruntimecicloudspannedevda008e1["Service/apigee-runtime-ci-cloud-spanne-dev-da008e1"]
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr["ReplicaSet/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr"]
-    Serviceapigeesynchronizercicloudspannedevda008e1["Service/apigee-synchronizer-ci-cloud-spanne-dev-da008e1"]
-    Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr["Pod/apigee-runtime-ci-cloud-spanne-dev-da008e1-1150-gxh0z-nx4tr"]
-    Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr2xqr7"]
-    Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr42ltk"]
-    Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltr57zn6"]
-    Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltrq6z45"]
-    Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4["Pod/apigee-synchronizer-ci-cloud-spanne-dev-da008e1-1150-40ltrq89h4"]
+    Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-config-9b8c53"]
+    Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-config-74dd12"]
+    ServiceAccountapigeesynchronizerapigeehwdeve8f1e25["ServiceAccount/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
+    Certificateapigeeruntimeapigeehwdeve8f1e25["Certificate/apigee-runtime-apigee-hw-dev-e8f1e25"]
+    Certificateapigeesynchronizerapigeehwdeve8f1e25["Certificate/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
+    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25["ApigeeDeployment/apigee-runtime-apigee-hw-dev-e8f1e25"]
+    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25["ApigeeDeployment/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
+    V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6["V2HorizontalPodAutoscaler/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6"]
+    ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6["ReplicaSet/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6"]
+    Serviceapigeeruntimeapigeehwdeve8f1e25["Service/apigee-runtime-apigee-hw-dev-e8f1e25"]
+    V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r["V2HorizontalPodAutoscaler/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r"]
+    ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r["ReplicaSet/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r"]
+    Serviceapigeesynchronizerapigeehwdeve8f1e25["Service/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
+    Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9["Pod/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6-2nfr9"]
+    Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd["Pod/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r-mb4zd"]
     HelmReleasedev["Helm Release: dev"]
-    Secretcicloudspannedevda008e1encryptionkeys["Secret/ci-cloud-spanne-dev-da008e1-encryption-keys"]
+    Secretapigeehwdeve8f1e25encryptionkeys["Secret/apigee-hw-dev-e8f1e25-encryption-keys"]
+    Secretapigeeruntimeapigeehwdeve8f1e25svcaccount["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-svc-account"]
+    Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-svc-account"]
+    Secretapigeeudcaapigeehwdeve8f1e25svcaccount["Secret/apigee-udca-apigee-hw-dev-e8f1e25-svc-account"]
 
-    class ApigeeEnvironmentcicloudspannedevda008e1 apigee_crd;
-    class ConfigMapapigeesynchronizercicloudspadevdggroupconfib809b91 config;
+    class ApigeeEnvironmentapigeehwdeve8f1e25 apigee_crd;
+    class ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141 config;
     class ConfigMapapigeesynchronizerdevaddonmap config;
-    class Secretapigeeruntimecicloudspannedevda008e1config74d732 config;
-    class Secretapigeesynchronizercicloudspannedevda008e1configd0d6a3 config;
-    class ServiceAccountapigeesynchronizercicloudspannedevda008e1 rbac;
-    class Certificateapigeeruntimecicloudspannedevda008e1 cert_manager_crd;
-    class Certificateapigeesynchronizercicloudspannedevda008e1 cert_manager_crd;
-    class ApigeeDeploymentapigeeruntimecicloudspannedevda008e1 apigee_crd;
-    class ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1 apigee_crd;
-    class ReplicaSetapigeeruntimecicloudspannedevda008e11150gxh0z workload;
-    class Serviceapigeeruntimecicloudspannedevda008e1 network;
-    class ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr workload;
-    class Serviceapigeesynchronizercicloudspannedevda008e1 network;
-    class Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr workload;
-    class Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7 workload;
-    class Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk workload;
-    class Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6 workload;
-    class Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45 workload;
-    class Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4 workload;
+    class Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53 config;
+    class Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12 config;
+    class ServiceAccountapigeesynchronizerapigeehwdeve8f1e25 rbac;
+    class Certificateapigeeruntimeapigeehwdeve8f1e25 cert_manager_crd;
+    class Certificateapigeesynchronizerapigeehwdeve8f1e25 cert_manager_crd;
+    class ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 apigee_crd;
+    class ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 apigee_crd;
+    class V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6 workload;
+    class ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6 workload;
+    class Serviceapigeeruntimeapigeehwdeve8f1e25 network;
+    class V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r workload;
+    class ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r workload;
+    class Serviceapigeesynchronizerapigeehwdeve8f1e25 network;
+    class Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9 workload;
+    class Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd workload;
     class HelmReleasedev helm;
-    class Secretcicloudspannedevda008e1encryptionkeys config;
+    class Secretapigeehwdeve8f1e25encryptionkeys config;
+    class Secretapigeeruntimeapigeehwdeve8f1e25svcaccount config;
+    class Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount config;
+    class Secretapigeeudcaapigeehwdeve8f1e25svcaccount config;
 
-    ApigeeEnvironmentcicloudspannedevda008e1 --> ConfigMapapigeesynchronizercicloudspadevdggroupconfib809b91
-    ApigeeEnvironmentcicloudspannedevda008e1 --> ConfigMapapigeesynchronizerdevaddonmap
-    ApigeeEnvironmentcicloudspannedevda008e1 --> Secretapigeeruntimecicloudspannedevda008e1config74d732
-    ApigeeEnvironmentcicloudspannedevda008e1 --> Secretapigeesynchronizercicloudspannedevda008e1configd0d6a3
-    ApigeeEnvironmentcicloudspannedevda008e1 --> ServiceAccountapigeesynchronizercicloudspannedevda008e1
-    ApigeeEnvironmentcicloudspannedevda008e1 --> Certificateapigeeruntimecicloudspannedevda008e1
-    ApigeeEnvironmentcicloudspannedevda008e1 --> Certificateapigeesynchronizercicloudspannedevda008e1
-    ApigeeEnvironmentcicloudspannedevda008e1 --> ApigeeDeploymentapigeeruntimecicloudspannedevda008e1
-    ApigeeEnvironmentcicloudspannedevda008e1 --> ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1
-    ApigeeDeploymentapigeeruntimecicloudspannedevda008e1 --> ReplicaSetapigeeruntimecicloudspannedevda008e11150gxh0z
-    ApigeeDeploymentapigeeruntimecicloudspannedevda008e1 --> Serviceapigeeruntimecicloudspannedevda008e1
-    ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1 --> ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr
-    ApigeeDeploymentapigeesynchronizercicloudspannedevda008e1 --> Serviceapigeesynchronizercicloudspannedevda008e1
-    ReplicaSetapigeeruntimecicloudspannedevda008e11150gxh0z --> Podapigeeruntimecicloudspannedevda008e11150gxh0znx4tr
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr2xqr7
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr42ltk
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltr57zn6
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltrq6z45
-    ReplicaSetapigeesynchronizercicloudspannedevda008e1115040ltr --> Podapigeesynchronizercicloudspannedevda008e1115040ltrq89h4
-    HelmReleasedev --> Secretcicloudspannedevda008e1encryptionkeys
-    HelmReleasedev --> ApigeeEnvironmentcicloudspannedevda008e1
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> ConfigMapapigeesynchronizerdevaddonmap
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> ServiceAccountapigeesynchronizerapigeehwdeve8f1e25
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> Certificateapigeeruntimeapigeehwdeve8f1e25
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> Certificateapigeesynchronizerapigeehwdeve8f1e25
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25
+    ApigeeEnvironmentapigeehwdeve8f1e25 --> ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25
+    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6
+    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6
+    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> Serviceapigeeruntimeapigeehwdeve8f1e25
+    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r
+    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r
+    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> Serviceapigeesynchronizerapigeehwdeve8f1e25
+    ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6 --> Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9
+    ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r --> Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd
+    HelmReleasedev --> Secretapigeehwdeve8f1e25encryptionkeys
+    HelmReleasedev --> Secretapigeeruntimeapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> Secretapigeeudcaapigeehwdeve8f1e25svcaccount
+    HelmReleasedev --> ApigeeEnvironmentapigeehwdeve8f1e25
 ```

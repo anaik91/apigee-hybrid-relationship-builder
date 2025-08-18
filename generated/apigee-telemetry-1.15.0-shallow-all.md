@@ -2,7 +2,7 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'telemetry'...
 
-Discovery complete. Found a total of 1 related objects.
+Discovery complete. Found a total of 2 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
@@ -21,10 +21,13 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     HelmReleasetelemetry["Helm Release: telemetry"]
+    Secretapigeemetricssvcaccount["Secret/apigee-metrics-svc-account"]
     ApigeeTelemetryapigeetelemetry["ApigeeTelemetry/apigee-telemetry"]
 
     class HelmReleasetelemetry helm;
+    class Secretapigeemetricssvcaccount config;
     class ApigeeTelemetryapigeetelemetry apigee_crd;
 
+    HelmReleasetelemetry --> Secretapigeemetricssvcaccount
     HelmReleasetelemetry --> ApigeeTelemetryapigeetelemetry
 ```

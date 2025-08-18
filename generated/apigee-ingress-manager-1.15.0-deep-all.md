@@ -22,11 +22,11 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeeingressgatewaymanager["Deployment/apigee-ingressgateway-manager"]
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d["ReplicaSet/apigee-ingressgateway-manager-54b5799f4d"]
     ReplicaSetapigeeingressgatewaymanager5967c955ff["ReplicaSet/apigee-ingressgateway-manager-5967c955ff"]
-    Podapigeeingressgatewaymanager54b5799f4d7gchs["Pod/apigee-ingressgateway-manager-54b5799f4d-7gchs"]
-    Podapigeeingressgatewaymanager54b5799f4dhbwth["Pod/apigee-ingressgateway-manager-54b5799f4d-hbwth"]
+    Podapigeeingressgatewaymanager5967c955ff48dpn["Pod/apigee-ingressgateway-manager-5967c955ff-48dpn"]
+    Podapigeeingressgatewaymanager5967c955ff747l7["Pod/apigee-ingressgateway-manager-5967c955ff-747l7"]
     HelmReleaseingressmanager["Helm Release: ingress-manager"]
+    V2HorizontalPodAutoscalerapigeeingressgatewaymanager["V2HorizontalPodAutoscaler/apigee-ingressgateway-manager"]
     Serviceapigeeingressgatewaymanager["Service/apigee-ingressgateway-manager"]
     ConfigMapapigeeenvoyfilters["ConfigMap/apigee-envoyfilters"]
     ConfigMapapigeeistiomeshconfig["ConfigMap/apigee-istio-mesh-config"]
@@ -35,11 +35,11 @@ graph TD;
     Certificateapigeeistiod["Certificate/apigee-istiod"]
 
     class Deploymentapigeeingressgatewaymanager workload;
-    class ReplicaSetapigeeingressgatewaymanager54b5799f4d workload;
     class ReplicaSetapigeeingressgatewaymanager5967c955ff workload;
-    class Podapigeeingressgatewaymanager54b5799f4d7gchs workload;
-    class Podapigeeingressgatewaymanager54b5799f4dhbwth workload;
+    class Podapigeeingressgatewaymanager5967c955ff48dpn workload;
+    class Podapigeeingressgatewaymanager5967c955ff747l7 workload;
     class HelmReleaseingressmanager helm;
+    class V2HorizontalPodAutoscalerapigeeingressgatewaymanager workload;
     class Serviceapigeeingressgatewaymanager network;
     class ConfigMapapigeeenvoyfilters config;
     class ConfigMapapigeeistiomeshconfig config;
@@ -47,11 +47,11 @@ graph TD;
     class ServiceAccountapigeeingressgatewaymanager rbac;
     class Certificateapigeeistiod cert_manager_crd;
 
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager54b5799f4d
     Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4d7gchs
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d --> Podapigeeingressgatewaymanager54b5799f4dhbwth
+    ReplicaSetapigeeingressgatewaymanager5967c955ff --> Podapigeeingressgatewaymanager5967c955ff48dpn
+    ReplicaSetapigeeingressgatewaymanager5967c955ff --> Podapigeeingressgatewaymanager5967c955ff747l7
     HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
+    HelmReleaseingressmanager --> V2HorizontalPodAutoscalerapigeeingressgatewaymanager
     HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager
     HelmReleaseingressmanager --> ConfigMapapigeeenvoyfilters
     HelmReleaseingressmanager --> ConfigMapapigeeistiomeshconfig

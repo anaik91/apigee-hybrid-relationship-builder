@@ -22,9 +22,9 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeeingressgatewaymanager["Deployment/apigee-ingressgateway-manager"]
-    ReplicaSetapigeeingressgatewaymanager54b5799f4d["ReplicaSet/apigee-ingressgateway-manager-54b5799f4d"]
     ReplicaSetapigeeingressgatewaymanager5967c955ff["ReplicaSet/apigee-ingressgateway-manager-5967c955ff"]
     HelmReleaseingressmanager["Helm Release: ingress-manager"]
+    V2HorizontalPodAutoscalerapigeeingressgatewaymanager["V2HorizontalPodAutoscaler/apigee-ingressgateway-manager"]
     Serviceapigeeingressgatewaymanager["Service/apigee-ingressgateway-manager"]
     ConfigMapapigeeenvoyfilters["ConfigMap/apigee-envoyfilters"]
     ConfigMapapigeeistiomeshconfig["ConfigMap/apigee-istio-mesh-config"]
@@ -33,9 +33,9 @@ graph TD;
     Certificateapigeeistiod["Certificate/apigee-istiod"]
 
     class Deploymentapigeeingressgatewaymanager workload;
-    class ReplicaSetapigeeingressgatewaymanager54b5799f4d workload;
     class ReplicaSetapigeeingressgatewaymanager5967c955ff workload;
     class HelmReleaseingressmanager helm;
+    class V2HorizontalPodAutoscalerapigeeingressgatewaymanager workload;
     class Serviceapigeeingressgatewaymanager network;
     class ConfigMapapigeeenvoyfilters config;
     class ConfigMapapigeeistiomeshconfig config;
@@ -43,9 +43,9 @@ graph TD;
     class ServiceAccountapigeeingressgatewaymanager rbac;
     class Certificateapigeeistiod cert_manager_crd;
 
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager54b5799f4d
     Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
     HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
+    HelmReleaseingressmanager --> V2HorizontalPodAutoscalerapigeeingressgatewaymanager
     HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager
     HelmReleaseingressmanager --> ConfigMapapigeeenvoyfilters
     HelmReleaseingressmanager --> ConfigMapapigeeistiomeshconfig

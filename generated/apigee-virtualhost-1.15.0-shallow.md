@@ -1,6 +1,6 @@
 Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
-Identifying objects directly managed by release 'env-group-dev'...
+Identifying objects directly managed by release 'group-a'...
 
 Discovery complete. Found a total of 2 related objects.
 Applying filters to discovered objects...
@@ -8,7 +8,7 @@ Filters applied. 2 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: env-group-dev | Namespace: apigee
+#### Release: group-a | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -21,14 +21,14 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    HelmReleaseenvgroupdev["Helm Release: env-group-dev"]
-    Secretcicloudspannerc06ddev["Secret/ci-cloud-spanner-c06d-dev"]
-    ApigeeRouteConfigcicloudspannerc06ddev["ApigeeRouteConfig/ci-cloud-spanner-c06d-dev"]
+    HelmReleasegroupa["Helm Release: group-a"]
+    Secretapigeehwgroupa["Secret/apigee-hw-group-a"]
+    ApigeeRouteConfigapigeehwgroupa["ApigeeRouteConfig/apigee-hw-group-a"]
 
-    class HelmReleaseenvgroupdev helm;
-    class Secretcicloudspannerc06ddev config;
-    class ApigeeRouteConfigcicloudspannerc06ddev apigee_crd;
+    class HelmReleasegroupa helm;
+    class Secretapigeehwgroupa config;
+    class ApigeeRouteConfigapigeehwgroupa apigee_crd;
 
-    HelmReleaseenvgroupdev --> Secretcicloudspannerc06ddev
-    HelmReleaseenvgroupdev --> ApigeeRouteConfigcicloudspannerc06ddev
+    HelmReleasegroupa --> Secretapigeehwgroupa
+    HelmReleasegroupa --> ApigeeRouteConfigapigeehwgroupa
 ```

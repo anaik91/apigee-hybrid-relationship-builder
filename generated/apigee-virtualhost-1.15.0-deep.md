@@ -1,6 +1,6 @@
 Deep discovery enabled. Searching for all related objects.
 Fetching all potential resources for deep discovery...
-Identifying seed objects for release 'env-group-dev'...
+Identifying seed objects for release 'group-a'...
 Starting recursive discovery from seed objects...
 
 Discovery complete. Found a total of 3 related objects.
@@ -9,7 +9,7 @@ Filters applied. 3 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: env-group-dev | Namespace: apigee
+#### Release: group-a | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -22,17 +22,17 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    ApigeeRouteConfigcicloudspannerc06ddev["ApigeeRouteConfig/ci-cloud-spanner-c06d-dev"]
-    ApigeeRoutecicloudspannerc06ddev000e64b80a["ApigeeRoute/ci-cloud-spanner-c06d-dev-000-e64b80a"]
-    HelmReleaseenvgroupdev["Helm Release: env-group-dev"]
-    Secretcicloudspannerc06ddev["Secret/ci-cloud-spanner-c06d-dev"]
+    ApigeeRouteConfigapigeehwgroupa["ApigeeRouteConfig/apigee-hw-group-a"]
+    ApigeeRouteapigeehwgroupa0004df0e43["ApigeeRoute/apigee-hw-group-a-000-4df0e43"]
+    HelmReleasegroupa["Helm Release: group-a"]
+    Secretapigeehwgroupa["Secret/apigee-hw-group-a"]
 
-    class ApigeeRouteConfigcicloudspannerc06ddev apigee_crd;
-    class ApigeeRoutecicloudspannerc06ddev000e64b80a apigee_crd;
-    class HelmReleaseenvgroupdev helm;
-    class Secretcicloudspannerc06ddev config;
+    class ApigeeRouteConfigapigeehwgroupa apigee_crd;
+    class ApigeeRouteapigeehwgroupa0004df0e43 apigee_crd;
+    class HelmReleasegroupa helm;
+    class Secretapigeehwgroupa config;
 
-    ApigeeRouteConfigcicloudspannerc06ddev --> ApigeeRoutecicloudspannerc06ddev000e64b80a
-    HelmReleaseenvgroupdev --> Secretcicloudspannerc06ddev
-    HelmReleaseenvgroupdev --> ApigeeRouteConfigcicloudspannerc06ddev
+    ApigeeRouteConfigapigeehwgroupa --> ApigeeRouteapigeehwgroupa0004df0e43
+    HelmReleasegroupa --> Secretapigeehwgroupa
+    HelmReleasegroupa --> ApigeeRouteConfigapigeehwgroupa
 ```

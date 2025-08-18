@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'operator'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 35 related objects.
+Discovery complete. Found a total of 36 related objects.
 Applying filters to discovered objects...
-Filters applied. 11 objects remaining for diagram.
+Filters applied. 12 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -24,7 +24,7 @@ graph TD;
 
     Deploymentapigeecontrollermanager["Deployment/apigee-controller-manager"]
     ReplicaSetapigeecontrollermanager76fcc5456f["ReplicaSet/apigee-controller-manager-76fcc5456f"]
-    Podapigeecontrollermanager76fcc5456ftq9pr["Pod/apigee-controller-manager-76fcc5456f-tq9pr"]
+    Podapigeecontrollermanager76fcc5456ftprmp["Pod/apigee-controller-manager-76fcc5456f-tprmp"]
     HelmReleaseoperator["Helm Release: operator"]
     Serviceapigeecontrollermanagermetricsservice["Service/apigee-controller-manager-metrics-service"]
     Serviceapigeewebhookservice["Service/apigee-webhook-service"]
@@ -34,10 +34,11 @@ graph TD;
     MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee["MutatingWebhookConfiguration/apigee-mutating-webhook-configuration-apigee"]
     ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee["ValidatingWebhookConfiguration/apigee-validating-webhook-configuration-apigee"]
     ClusterIssuerapigeecaissuer["ClusterIssuer/apigee-ca-issuer"]
+    ClusterIssuerapigeerootcertificateissuer["ClusterIssuer/apigee-root-certificate-issuer"]
 
     class Deploymentapigeecontrollermanager workload;
     class ReplicaSetapigeecontrollermanager76fcc5456f workload;
-    class Podapigeecontrollermanager76fcc5456ftq9pr workload;
+    class Podapigeecontrollermanager76fcc5456ftprmp workload;
     class HelmReleaseoperator helm;
     class Serviceapigeecontrollermanagermetricsservice network;
     class Serviceapigeewebhookservice network;
@@ -47,9 +48,10 @@ graph TD;
     class MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee webhook;
     class ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee webhook;
     class ClusterIssuerapigeecaissuer cert_manager_crd;
+    class ClusterIssuerapigeerootcertificateissuer cert_manager_crd;
 
     Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager76fcc5456f
-    ReplicaSetapigeecontrollermanager76fcc5456f --> Podapigeecontrollermanager76fcc5456ftq9pr
+    ReplicaSetapigeecontrollermanager76fcc5456f --> Podapigeecontrollermanager76fcc5456ftprmp
     HelmReleaseoperator --> Deploymentapigeecontrollermanager
     HelmReleaseoperator --> Serviceapigeecontrollermanagermetricsservice
     HelmReleaseoperator --> Serviceapigeewebhookservice
@@ -59,4 +61,5 @@ graph TD;
     HelmReleaseoperator --> MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee
     HelmReleaseoperator --> ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee
     HelmReleaseoperator --> ClusterIssuerapigeecaissuer
+    HelmReleaseoperator --> ClusterIssuerapigeerootcertificateissuer
 ```

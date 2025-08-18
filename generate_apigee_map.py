@@ -12,6 +12,7 @@ RESOURCE_METADATA = {
     # Namespaced resources
     "Pod": {"scope": "namespaced", "fetcher": lambda api, n: api["v1"].list_namespaced_pod(n).items},
     "Deployment": {"scope": "namespaced", "fetcher": lambda api, n: api["apps_v1"].list_namespaced_deployment(n).items},
+    "HorizontalPodAutoscaler": {"scope": "namespaced", "fetcher": lambda api, n: api["hpa"].list_namespaced_horizontal_pod_autoscaler(n).items},
     "ReplicaSet": {"scope": "namespaced", "fetcher": lambda api, n: api["apps_v1"].list_namespaced_replica_set(n).items},
     "StatefulSet": {"scope": "namespaced", "fetcher": lambda api, n: api["apps_v1"].list_namespaced_stateful_set(n).items},
     "DaemonSet": {"scope": "namespaced", "fetcher": lambda api, n: api["apps_v1"].list_namespaced_daemon_set(n).items},
@@ -45,6 +46,7 @@ RESOURCE_METADATA = {
 
 KIND_TO_STYLE_GROUP = {
     "Deployment": "workload",
+    "V2HorizontalPodAutoscaler": "workload",
     "StatefulSet": "workload",
     "DaemonSet": "workload",
     "ReplicaSet": "workload",
@@ -101,6 +103,7 @@ def _get_api_clients():
         config.load_kube_config()
         return {
             "v1": client.CoreV1Api(),
+            "hpa" : client.AutoscalingV2Api(),
             "apps_v1": client.AppsV1Api(),
             "rbac_v1": client.RbacAuthorizationV1Api(),
             "custom": client.CustomObjectsApi(),

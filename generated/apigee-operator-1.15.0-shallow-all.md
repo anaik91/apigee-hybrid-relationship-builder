@@ -2,7 +2,7 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'operator'...
 
-Discovery complete. Found a total of 35 related objects.
+Discovery complete. Found a total of 36 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
@@ -21,7 +21,8 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeecontrollermanager["Deployment/apigee-controller-manager"]
-    ReplicaSetapigeecontrollermanager76fcc5456f["ReplicaSet/apigee-controller-manager-76fcc5456f"]
+    ReplicaSetapigeecontrollermanager64997787fb["ReplicaSet/apigee-controller-manager-64997787fb"]
+    ReplicaSetapigeecontrollermanager6c74bbd4fb["ReplicaSet/apigee-controller-manager-6c74bbd4fb"]
     HelmReleaseoperator["Helm Release: operator"]
     Serviceapigeecontrollermanagermetricsservice["Service/apigee-controller-manager-metrics-service"]
     Serviceapigeewebhookservice["Service/apigee-webhook-service"]
@@ -34,7 +35,7 @@ graph TD;
     Roleapigeeleaderelectionrole["Role/apigee-leader-election-role"]
     Roleapigeemanagerrole["Role/apigee-manager-role"]
     Roleapigeemetricsadapterapigeetelemetry["Role/apigee-metrics-adapter-apigee-telemetry"]
-    Roleapigeemetricsapigeetelemetry["Role/apigee-metrics-apigee-telemetry"]
+    Roleapigeemetricssvcaccountsecret["Role/apigee-metrics-svc-account-secret"]
     RoleBindingapigeecassandrabackup["RoleBinding/apigee-cassandra-backup"]
     RoleBindingapigeecassandrarestore["RoleBinding/apigee-cassandra-restore"]
     RoleBindingapigeeingressgatewaymanagerapigee["RoleBinding/apigee-ingressgateway-manager-apigee"]
@@ -42,7 +43,7 @@ graph TD;
     RoleBindingapigeeleaderelectionrolebinding["RoleBinding/apigee-leader-election-rolebinding"]
     RoleBindingapigeemanagerrolebinding["RoleBinding/apigee-manager-rolebinding"]
     RoleBindingapigeemetricsadapterapigeetelemetry["RoleBinding/apigee-metrics-adapter-apigee-telemetry"]
-    RoleBindingapigeemetricsapigeetelemetry["RoleBinding/apigee-metrics-apigee-telemetry"]
+    RoleBindingapigeemetricssvcaccountsecret["RoleBinding/apigee-metrics-svc-account-secret"]
     Certificateapigeeservingcert["Certificate/apigee-serving-cert"]
     MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee["MutatingWebhookConfiguration/apigee-mutating-webhook-configuration-apigee"]
     ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee["ValidatingWebhookConfiguration/apigee-validating-webhook-configuration-apigee"]
@@ -58,7 +59,8 @@ graph TD;
     ClusterIssuerapigeerootcertificateissuer["ClusterIssuer/apigee-root-certificate-issuer"]
 
     class Deploymentapigeecontrollermanager workload;
-    class ReplicaSetapigeecontrollermanager76fcc5456f workload;
+    class ReplicaSetapigeecontrollermanager64997787fb workload;
+    class ReplicaSetapigeecontrollermanager6c74bbd4fb workload;
     class HelmReleaseoperator helm;
     class Serviceapigeecontrollermanagermetricsservice network;
     class Serviceapigeewebhookservice network;
@@ -71,7 +73,7 @@ graph TD;
     class Roleapigeeleaderelectionrole rbac;
     class Roleapigeemanagerrole rbac;
     class Roleapigeemetricsadapterapigeetelemetry rbac;
-    class Roleapigeemetricsapigeetelemetry rbac;
+    class Roleapigeemetricssvcaccountsecret rbac;
     class RoleBindingapigeecassandrabackup rbac;
     class RoleBindingapigeecassandrarestore rbac;
     class RoleBindingapigeeingressgatewaymanagerapigee rbac;
@@ -79,7 +81,7 @@ graph TD;
     class RoleBindingapigeeleaderelectionrolebinding rbac;
     class RoleBindingapigeemanagerrolebinding rbac;
     class RoleBindingapigeemetricsadapterapigeetelemetry rbac;
-    class RoleBindingapigeemetricsapigeetelemetry rbac;
+    class RoleBindingapigeemetricssvcaccountsecret rbac;
     class Certificateapigeeservingcert cert_manager_crd;
     class MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee webhook;
     class ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee webhook;
@@ -94,7 +96,8 @@ graph TD;
     class ClusterIssuerapigeecaissuer cert_manager_crd;
     class ClusterIssuerapigeerootcertificateissuer cert_manager_crd;
 
-    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager76fcc5456f
+    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager64997787fb
+    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager6c74bbd4fb
     HelmReleaseoperator --> Deploymentapigeecontrollermanager
     HelmReleaseoperator --> Serviceapigeecontrollermanagermetricsservice
     HelmReleaseoperator --> Serviceapigeewebhookservice
@@ -107,7 +110,7 @@ graph TD;
     HelmReleaseoperator --> Roleapigeeleaderelectionrole
     HelmReleaseoperator --> Roleapigeemanagerrole
     HelmReleaseoperator --> Roleapigeemetricsadapterapigeetelemetry
-    HelmReleaseoperator --> Roleapigeemetricsapigeetelemetry
+    HelmReleaseoperator --> Roleapigeemetricssvcaccountsecret
     HelmReleaseoperator --> RoleBindingapigeecassandrabackup
     HelmReleaseoperator --> RoleBindingapigeecassandrarestore
     HelmReleaseoperator --> RoleBindingapigeeingressgatewaymanagerapigee
@@ -115,7 +118,7 @@ graph TD;
     HelmReleaseoperator --> RoleBindingapigeeleaderelectionrolebinding
     HelmReleaseoperator --> RoleBindingapigeemanagerrolebinding
     HelmReleaseoperator --> RoleBindingapigeemetricsadapterapigeetelemetry
-    HelmReleaseoperator --> RoleBindingapigeemetricsapigeetelemetry
+    HelmReleaseoperator --> RoleBindingapigeemetricssvcaccountsecret
     HelmReleaseoperator --> Certificateapigeeservingcert
     HelmReleaseoperator --> MutatingWebhookConfigurationapigeemutatingwebhookconfigurationapigee
     HelmReleaseoperator --> ValidatingWebhookConfigurationapigeevalidatingwebhookconfigurationapigee

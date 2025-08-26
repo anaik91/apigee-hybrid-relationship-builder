@@ -41,6 +41,7 @@ RESOURCE_METADATA = {
     "ClusterRole": {"scope": "cluster", "fetcher": lambda api: api["rbac_v1"].list_cluster_role().items},
     "ClusterRoleBinding": {"scope": "cluster", "fetcher": lambda api: api["rbac_v1"].list_cluster_role_binding().items},
     "ClusterIssuer": {"scope": "cluster", "fetcher": lambda api: api["custom"].list_cluster_custom_object("cert-manager.io", "v1", "clusterissuers").get("items", [])},
+    "APIService": {"scope": "cluster", "fetcher": lambda api: api["apiregistration"].list_api_service().items}
 }
 
 
@@ -77,6 +78,7 @@ KIND_TO_STYLE_GROUP = {
     # Webhooks
     "MutatingWebhookConfiguration": "webhook",
     "ValidatingWebhookConfiguration": "webhook",
+    "APIService": "webhook",
 }
 
 # Define the Mermaid styling for each group. You can change colors here.
@@ -107,7 +109,8 @@ def _get_api_clients():
             "apps_v1": client.AppsV1Api(),
             "rbac_v1": client.RbacAuthorizationV1Api(),
             "custom": client.CustomObjectsApi(),
-            "wh_v1" : client.AdmissionregistrationV1Api()
+            "wh_v1" : client.AdmissionregistrationV1Api(),
+            "apiregistration": client.ApiregistrationV1Api()
         }
     except Exception as e:
         print(f"Error: Could not configure Kubernetes client: {e}", file=sys.stderr)

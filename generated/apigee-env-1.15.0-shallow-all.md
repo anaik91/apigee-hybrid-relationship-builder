@@ -1,13 +1,13 @@
 Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
-Identifying objects directly managed by release 'dev'...
+Identifying objects directly managed by release 'apigee-env-test2'...
 
-Discovery complete. Found a total of 5 related objects.
+Discovery complete. Found a total of 2 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: dev | Namespace: apigee
+#### Release: apigee-env-test2 | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -20,23 +20,14 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    HelmReleasedev["Helm Release: dev"]
-    Secretapigeehwdeve8f1e25encryptionkeys["Secret/apigee-hw-dev-e8f1e25-encryption-keys"]
-    Secretapigeeruntimeapigeehwdeve8f1e25svcaccount["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-svc-account"]
-    Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-svc-account"]
-    Secretapigeeudcaapigeehwdeve8f1e25svcaccount["Secret/apigee-udca-apigee-hw-dev-e8f1e25-svc-account"]
-    ApigeeEnvironmentapigeehwdeve8f1e25["ApigeeEnvironment/apigee-hw-dev-e8f1e25"]
+    HelmReleaseapigeeenvtest2["Helm Release: apigee-env-test2"]
+    Secretapigeehybrid3test25a04239encryptionkeys["Secret/apigee-hybrid-3-test2-5a04239-encryption-keys"]
+    ApigeeEnvironmentapigeehybrid3test25a04239["ApigeeEnvironment/apigee-hybrid-3-test2-5a04239"]
 
-    class HelmReleasedev helm;
-    class Secretapigeehwdeve8f1e25encryptionkeys config;
-    class Secretapigeeruntimeapigeehwdeve8f1e25svcaccount config;
-    class Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount config;
-    class Secretapigeeudcaapigeehwdeve8f1e25svcaccount config;
-    class ApigeeEnvironmentapigeehwdeve8f1e25 apigee_crd;
+    class HelmReleaseapigeeenvtest2 helm;
+    class Secretapigeehybrid3test25a04239encryptionkeys config;
+    class ApigeeEnvironmentapigeehybrid3test25a04239 apigee_crd;
 
-    HelmReleasedev --> Secretapigeehwdeve8f1e25encryptionkeys
-    HelmReleasedev --> Secretapigeeruntimeapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> Secretapigeeudcaapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> ApigeeEnvironmentapigeehwdeve8f1e25
+    HelmReleaseapigeeenvtest2 --> Secretapigeehybrid3test25a04239encryptionkeys
+    HelmReleaseapigeeenvtest2 --> ApigeeEnvironmentapigeehybrid3test25a04239
 ```

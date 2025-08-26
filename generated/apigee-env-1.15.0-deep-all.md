@@ -1,14 +1,14 @@
 Deep discovery enabled. Searching for all related objects.
 Fetching all potential resources for deep discovery...
-Identifying seed objects for release 'dev'...
+Identifying seed objects for release 'apigee-env-test2'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 22 related objects.
+Discovery complete. Found a total of 19 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: dev | Namespace: apigee
+#### Release: apigee-env-test2 | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -21,74 +21,65 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    ApigeeEnvironmentapigeehwdeve8f1e25["ApigeeEnvironment/apigee-hw-dev-e8f1e25"]
-    ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141["ConfigMap/apigee-synchronizer-apigee-hw-dev-dggroupconfi-0cdf141"]
-    ConfigMapapigeesynchronizerdevaddonmap["ConfigMap/apigee-synchronizer-dev-add-on-map"]
-    Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-config-9b8c53"]
-    Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-config-74dd12"]
-    ServiceAccountapigeesynchronizerapigeehwdeve8f1e25["ServiceAccount/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
-    Certificateapigeeruntimeapigeehwdeve8f1e25["Certificate/apigee-runtime-apigee-hw-dev-e8f1e25"]
-    Certificateapigeesynchronizerapigeehwdeve8f1e25["Certificate/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
-    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25["ApigeeDeployment/apigee-runtime-apigee-hw-dev-e8f1e25"]
-    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25["ApigeeDeployment/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
-    V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6["V2HorizontalPodAutoscaler/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6"]
-    ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6["ReplicaSet/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6"]
-    Serviceapigeeruntimeapigeehwdeve8f1e25["Service/apigee-runtime-apigee-hw-dev-e8f1e25"]
-    V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r["V2HorizontalPodAutoscaler/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r"]
-    ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r["ReplicaSet/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r"]
-    Serviceapigeesynchronizerapigeehwdeve8f1e25["Service/apigee-synchronizer-apigee-hw-dev-e8f1e25"]
-    Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9["Pod/apigee-runtime-apigee-hw-dev-e8f1e25-1150-91gn6-2nfr9"]
-    Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd["Pod/apigee-synchronizer-apigee-hw-dev-e8f1e25-1150-7qh6r-mb4zd"]
-    HelmReleasedev["Helm Release: dev"]
-    Secretapigeehwdeve8f1e25encryptionkeys["Secret/apigee-hw-dev-e8f1e25-encryption-keys"]
-    Secretapigeeruntimeapigeehwdeve8f1e25svcaccount["Secret/apigee-runtime-apigee-hw-dev-e8f1e25-svc-account"]
-    Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount["Secret/apigee-synchronizer-apigee-hw-dev-e8f1e25-svc-account"]
-    Secretapigeeudcaapigeehwdeve8f1e25svcaccount["Secret/apigee-udca-apigee-hw-dev-e8f1e25-svc-account"]
+    ApigeeEnvironmentapigeehybrid3test25a04239["ApigeeEnvironment/apigee-hybrid-3-test2-5a04239"]
+    ConfigMapapigeesynchronizerapigeehybritest2dggroupconfie61fb5a["ConfigMap/apigee-synchronizer-apigee-hybri-test2-dggroupconfi-e61fb5a"]
+    ConfigMapapigeesynchronizertest2addonmap["ConfigMap/apigee-synchronizer-test2-add-on-map"]
+    Secretapigeeruntimeapigeehybrid3test25a04239config7435d7["Secret/apigee-runtime-apigee-hybrid-3-test2-5a04239-config-7435d7"]
+    Secretapigeesynchronizerapigeehybrid3test25a04239config93907f["Secret/apigee-synchronizer-apigee-hybrid-3-test2-5a04239-config-93907f"]
+    ServiceAccountapigeesynchronizerapigeehybrid3test25a04239["ServiceAccount/apigee-synchronizer-apigee-hybrid-3-test2-5a04239"]
+    Certificateapigeeruntimeapigeehybrid3test25a04239["Certificate/apigee-runtime-apigee-hybrid-3-test2-5a04239"]
+    Certificateapigeesynchronizerapigeehybrid3test25a04239["Certificate/apigee-synchronizer-apigee-hybrid-3-test2-5a04239"]
+    ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239["ApigeeDeployment/apigee-runtime-apigee-hybrid-3-test2-5a04239"]
+    ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239["ApigeeDeployment/apigee-synchronizer-apigee-hybrid-3-test2-5a04239"]
+    V2HorizontalPodAutoscalerapigeeruntimeapigeehybrid3test25a04239115023760["V2HorizontalPodAutoscaler/apigee-runtime-apigee-hybrid-3-test2-5a04239-1150-23760"]
+    ReplicaSetapigeeruntimeapigeehybrid3test25a04239115023760["ReplicaSet/apigee-runtime-apigee-hybrid-3-test2-5a04239-1150-23760"]
+    Serviceapigeeruntimeapigeehybrid3test25a04239["Service/apigee-runtime-apigee-hybrid-3-test2-5a04239"]
+    V2HorizontalPodAutoscalerapigeesynchronizerapigeehybrid3test25a042391150955qa["V2HorizontalPodAutoscaler/apigee-synchronizer-apigee-hybrid-3-test2-5a04239-1150-955qa"]
+    ReplicaSetapigeesynchronizerapigeehybrid3test25a042391150955qa["ReplicaSet/apigee-synchronizer-apigee-hybrid-3-test2-5a04239-1150-955qa"]
+    Serviceapigeesynchronizerapigeehybrid3test25a04239["Service/apigee-synchronizer-apigee-hybrid-3-test2-5a04239"]
+    Podapigeeruntimeapigeehybrid3test25a042391150237606mvtv["Pod/apigee-runtime-apigee-hybrid-3-test2-5a04239-1150-23760-6mvtv"]
+    Podapigeesynchronizerapigeehybrid3test25a042391150955tplx8["Pod/apigee-synchronizer-apigee-hybrid-3-test2-5a04239-1150-955tplx8"]
+    HelmReleaseapigeeenvtest2["Helm Release: apigee-env-test2"]
+    Secretapigeehybrid3test25a04239encryptionkeys["Secret/apigee-hybrid-3-test2-5a04239-encryption-keys"]
 
-    class ApigeeEnvironmentapigeehwdeve8f1e25 apigee_crd;
-    class ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141 config;
-    class ConfigMapapigeesynchronizerdevaddonmap config;
-    class Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53 config;
-    class Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12 config;
-    class ServiceAccountapigeesynchronizerapigeehwdeve8f1e25 rbac;
-    class Certificateapigeeruntimeapigeehwdeve8f1e25 cert_manager_crd;
-    class Certificateapigeesynchronizerapigeehwdeve8f1e25 cert_manager_crd;
-    class ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 apigee_crd;
-    class ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 apigee_crd;
-    class V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6 workload;
-    class ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6 workload;
-    class Serviceapigeeruntimeapigeehwdeve8f1e25 network;
-    class V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r workload;
-    class ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r workload;
-    class Serviceapigeesynchronizerapigeehwdeve8f1e25 network;
-    class Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9 workload;
-    class Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd workload;
-    class HelmReleasedev helm;
-    class Secretapigeehwdeve8f1e25encryptionkeys config;
-    class Secretapigeeruntimeapigeehwdeve8f1e25svcaccount config;
-    class Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount config;
-    class Secretapigeeudcaapigeehwdeve8f1e25svcaccount config;
+    class ApigeeEnvironmentapigeehybrid3test25a04239 apigee_crd;
+    class ConfigMapapigeesynchronizerapigeehybritest2dggroupconfie61fb5a config;
+    class ConfigMapapigeesynchronizertest2addonmap config;
+    class Secretapigeeruntimeapigeehybrid3test25a04239config7435d7 config;
+    class Secretapigeesynchronizerapigeehybrid3test25a04239config93907f config;
+    class ServiceAccountapigeesynchronizerapigeehybrid3test25a04239 rbac;
+    class Certificateapigeeruntimeapigeehybrid3test25a04239 cert_manager_crd;
+    class Certificateapigeesynchronizerapigeehybrid3test25a04239 cert_manager_crd;
+    class ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239 apigee_crd;
+    class ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239 apigee_crd;
+    class V2HorizontalPodAutoscalerapigeeruntimeapigeehybrid3test25a04239115023760 workload;
+    class ReplicaSetapigeeruntimeapigeehybrid3test25a04239115023760 workload;
+    class Serviceapigeeruntimeapigeehybrid3test25a04239 network;
+    class V2HorizontalPodAutoscalerapigeesynchronizerapigeehybrid3test25a042391150955qa workload;
+    class ReplicaSetapigeesynchronizerapigeehybrid3test25a042391150955qa workload;
+    class Serviceapigeesynchronizerapigeehybrid3test25a04239 network;
+    class Podapigeeruntimeapigeehybrid3test25a042391150237606mvtv workload;
+    class Podapigeesynchronizerapigeehybrid3test25a042391150955tplx8 workload;
+    class HelmReleaseapigeeenvtest2 helm;
+    class Secretapigeehybrid3test25a04239encryptionkeys config;
 
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> ConfigMapapigeesynchronizerapigeehwdevdggroupconfi0cdf141
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> ConfigMapapigeesynchronizerdevaddonmap
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> Secretapigeeruntimeapigeehwdeve8f1e25config9b8c53
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> Secretapigeesynchronizerapigeehwdeve8f1e25config74dd12
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> ServiceAccountapigeesynchronizerapigeehwdeve8f1e25
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> Certificateapigeeruntimeapigeehwdeve8f1e25
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> Certificateapigeesynchronizerapigeehwdeve8f1e25
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25
-    ApigeeEnvironmentapigeehwdeve8f1e25 --> ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25
-    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> V2HorizontalPodAutoscalerapigeeruntimeapigeehwdeve8f1e25115091gn6
-    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6
-    ApigeeDeploymentapigeeruntimeapigeehwdeve8f1e25 --> Serviceapigeeruntimeapigeehwdeve8f1e25
-    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> V2HorizontalPodAutoscalerapigeesynchronizerapigeehwdeve8f1e2511507qh6r
-    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r
-    ApigeeDeploymentapigeesynchronizerapigeehwdeve8f1e25 --> Serviceapigeesynchronizerapigeehwdeve8f1e25
-    ReplicaSetapigeeruntimeapigeehwdeve8f1e25115091gn6 --> Podapigeeruntimeapigeehwdeve8f1e25115091gn62nfr9
-    ReplicaSetapigeesynchronizerapigeehwdeve8f1e2511507qh6r --> Podapigeesynchronizerapigeehwdeve8f1e2511507qh6rmb4zd
-    HelmReleasedev --> Secretapigeehwdeve8f1e25encryptionkeys
-    HelmReleasedev --> Secretapigeeruntimeapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> Secretapigeesynchronizerapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> Secretapigeeudcaapigeehwdeve8f1e25svcaccount
-    HelmReleasedev --> ApigeeEnvironmentapigeehwdeve8f1e25
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> ConfigMapapigeesynchronizerapigeehybritest2dggroupconfie61fb5a
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> ConfigMapapigeesynchronizertest2addonmap
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> Secretapigeeruntimeapigeehybrid3test25a04239config7435d7
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> Secretapigeesynchronizerapigeehybrid3test25a04239config93907f
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> ServiceAccountapigeesynchronizerapigeehybrid3test25a04239
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> Certificateapigeeruntimeapigeehybrid3test25a04239
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> Certificateapigeesynchronizerapigeehybrid3test25a04239
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239
+    ApigeeEnvironmentapigeehybrid3test25a04239 --> ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239
+    ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239 --> V2HorizontalPodAutoscalerapigeeruntimeapigeehybrid3test25a04239115023760
+    ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239 --> ReplicaSetapigeeruntimeapigeehybrid3test25a04239115023760
+    ApigeeDeploymentapigeeruntimeapigeehybrid3test25a04239 --> Serviceapigeeruntimeapigeehybrid3test25a04239
+    ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239 --> V2HorizontalPodAutoscalerapigeesynchronizerapigeehybrid3test25a042391150955qa
+    ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239 --> ReplicaSetapigeesynchronizerapigeehybrid3test25a042391150955qa
+    ApigeeDeploymentapigeesynchronizerapigeehybrid3test25a04239 --> Serviceapigeesynchronizerapigeehybrid3test25a04239
+    ReplicaSetapigeeruntimeapigeehybrid3test25a04239115023760 --> Podapigeeruntimeapigeehybrid3test25a042391150237606mvtv
+    ReplicaSetapigeesynchronizerapigeehybrid3test25a042391150955qa --> Podapigeesynchronizerapigeehybrid3test25a042391150955tplx8
+    HelmReleaseapigeeenvtest2 --> Secretapigeehybrid3test25a04239encryptionkeys
+    HelmReleaseapigeeenvtest2 --> ApigeeEnvironmentapigeehybrid3test25a04239
 ```

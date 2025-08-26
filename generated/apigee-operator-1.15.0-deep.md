@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'operator'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 36 related objects.
+Discovery complete. Found a total of 37 related objects.
 Applying filters to discovered objects...
-Filters applied. 12 objects remaining for diagram.
+Filters applied. 13 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -23,8 +23,9 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeecontrollermanager["Deployment/apigee-controller-manager"]
-    ReplicaSetapigeecontrollermanager76fcc5456f["ReplicaSet/apigee-controller-manager-76fcc5456f"]
-    Podapigeecontrollermanager76fcc5456ftprmp["Pod/apigee-controller-manager-76fcc5456f-tprmp"]
+    ReplicaSetapigeecontrollermanager64997787fb["ReplicaSet/apigee-controller-manager-64997787fb"]
+    ReplicaSetapigeecontrollermanager6c74bbd4fb["ReplicaSet/apigee-controller-manager-6c74bbd4fb"]
+    Podapigeecontrollermanager6c74bbd4fbnnd8p["Pod/apigee-controller-manager-6c74bbd4fb-nnd8p"]
     HelmReleaseoperator["Helm Release: operator"]
     Serviceapigeecontrollermanagermetricsservice["Service/apigee-controller-manager-metrics-service"]
     Serviceapigeewebhookservice["Service/apigee-webhook-service"]
@@ -37,8 +38,9 @@ graph TD;
     ClusterIssuerapigeerootcertificateissuer["ClusterIssuer/apigee-root-certificate-issuer"]
 
     class Deploymentapigeecontrollermanager workload;
-    class ReplicaSetapigeecontrollermanager76fcc5456f workload;
-    class Podapigeecontrollermanager76fcc5456ftprmp workload;
+    class ReplicaSetapigeecontrollermanager64997787fb workload;
+    class ReplicaSetapigeecontrollermanager6c74bbd4fb workload;
+    class Podapigeecontrollermanager6c74bbd4fbnnd8p workload;
     class HelmReleaseoperator helm;
     class Serviceapigeecontrollermanagermetricsservice network;
     class Serviceapigeewebhookservice network;
@@ -50,8 +52,9 @@ graph TD;
     class ClusterIssuerapigeecaissuer cert_manager_crd;
     class ClusterIssuerapigeerootcertificateissuer cert_manager_crd;
 
-    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager76fcc5456f
-    ReplicaSetapigeecontrollermanager76fcc5456f --> Podapigeecontrollermanager76fcc5456ftprmp
+    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager64997787fb
+    Deploymentapigeecontrollermanager --> ReplicaSetapigeecontrollermanager6c74bbd4fb
+    ReplicaSetapigeecontrollermanager6c74bbd4fb --> Podapigeecontrollermanager6c74bbd4fbnnd8p
     HelmReleaseoperator --> Deploymentapigeecontrollermanager
     HelmReleaseoperator --> Serviceapigeecontrollermanagermetricsservice
     HelmReleaseoperator --> Serviceapigeewebhookservice

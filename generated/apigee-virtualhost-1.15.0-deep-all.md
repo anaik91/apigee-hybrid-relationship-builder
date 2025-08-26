@@ -1,14 +1,14 @@
 Deep discovery enabled. Searching for all related objects.
 Fetching all potential resources for deep discovery...
-Identifying seed objects for release 'group-a'...
+Identifying seed objects for release 'apigee-virtualhost-test2'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 3 related objects.
+Discovery complete. Found a total of 2 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: group-a | Namespace: apigee
+#### Release: apigee-virtualhost-test2 | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -21,17 +21,14 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    ApigeeRouteConfigapigeehwgroupa["ApigeeRouteConfig/apigee-hw-group-a"]
-    ApigeeRouteapigeehwgroupa0004df0e43["ApigeeRoute/apigee-hw-group-a-000-4df0e43"]
-    HelmReleasegroupa["Helm Release: group-a"]
-    Secretapigeehwgroupa["Secret/apigee-hw-group-a"]
+    ApigeeRouteConfigapigeehybrid378710test2["ApigeeRouteConfig/apigee-hybrid-378710-test2"]
+    ApigeeRouteapigeehybrid378710test20007196418["ApigeeRoute/apigee-hybrid-378710-test2-000-7196418"]
+    HelmReleaseapigeevirtualhosttest2["Helm Release: apigee-virtualhost-test2"]
 
-    class ApigeeRouteConfigapigeehwgroupa apigee_crd;
-    class ApigeeRouteapigeehwgroupa0004df0e43 apigee_crd;
-    class HelmReleasegroupa helm;
-    class Secretapigeehwgroupa config;
+    class ApigeeRouteConfigapigeehybrid378710test2 apigee_crd;
+    class ApigeeRouteapigeehybrid378710test20007196418 apigee_crd;
+    class HelmReleaseapigeevirtualhosttest2 helm;
 
-    ApigeeRouteConfigapigeehwgroupa --> ApigeeRouteapigeehwgroupa0004df0e43
-    HelmReleasegroupa --> Secretapigeehwgroupa
-    HelmReleasegroupa --> ApigeeRouteConfigapigeehwgroupa
+    ApigeeRouteConfigapigeehybrid378710test2 --> ApigeeRouteapigeehybrid378710test20007196418
+    HelmReleaseapigeevirtualhosttest2 --> ApigeeRouteConfigapigeehybrid378710test2
 ```

@@ -1,13 +1,13 @@
 Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
-Identifying objects directly managed by release 'group-a'...
+Identifying objects directly managed by release 'apigee-virtualhost-test2'...
 
-Discovery complete. Found a total of 2 related objects.
+Discovery complete. Found a total of 1 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
-#### Release: group-a | Namespace: apigee
+#### Release: apigee-virtualhost-test2 | Namespace: apigee
 ```mermaid
 graph TD;
     classDef helm fill:#f9f,stroke:#333,stroke-width:2px,color:#000
@@ -20,14 +20,11 @@ graph TD;
     classDef webhook fill:#ddd,stroke:#333,stroke-width:2px,color:#000
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
-    HelmReleasegroupa["Helm Release: group-a"]
-    Secretapigeehwgroupa["Secret/apigee-hw-group-a"]
-    ApigeeRouteConfigapigeehwgroupa["ApigeeRouteConfig/apigee-hw-group-a"]
+    HelmReleaseapigeevirtualhosttest2["Helm Release: apigee-virtualhost-test2"]
+    ApigeeRouteConfigapigeehybrid378710test2["ApigeeRouteConfig/apigee-hybrid-378710-test2"]
 
-    class HelmReleasegroupa helm;
-    class Secretapigeehwgroupa config;
-    class ApigeeRouteConfigapigeehwgroupa apigee_crd;
+    class HelmReleaseapigeevirtualhosttest2 helm;
+    class ApigeeRouteConfigapigeehybrid378710test2 apigee_crd;
 
-    HelmReleasegroupa --> Secretapigeehwgroupa
-    HelmReleasegroupa --> ApigeeRouteConfigapigeehwgroupa
+    HelmReleaseapigeevirtualhosttest2 --> ApigeeRouteConfigapigeehybrid378710test2
 ```

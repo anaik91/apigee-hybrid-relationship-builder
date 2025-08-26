@@ -34,10 +34,10 @@ graph TD;
     ApigeeDeploymentapigeeredisenvoydefault["ApigeeDeployment/apigee-redis-envoy-default"]
     Podapigeeredisdefault0["Pod/apigee-redis-default-0"]
     Podapigeeredisdefault1["Pod/apigee-redis-default-1"]
-    V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv["V2HorizontalPodAutoscaler/apigee-redis-envoy-default-1150-cdkuv"]
-    ReplicaSetapigeeredisenvoydefault1150cdkuv["ReplicaSet/apigee-redis-envoy-default-1150-cdkuv"]
+    V2HorizontalPodAutoscalerapigeeredisenvoydefault1150xt1ac["V2HorizontalPodAutoscaler/apigee-redis-envoy-default-1150-xt1ac"]
+    ReplicaSetapigeeredisenvoydefault1150xt1ac["ReplicaSet/apigee-redis-envoy-default-1150-xt1ac"]
     Serviceapigeeredisenvoydefault["Service/apigee-redis-envoy-default"]
-    Podapigeeredisenvoydefault1150cdkuv7mv5h["Pod/apigee-redis-envoy-default-1150-cdkuv-7mv5h"]
+    Podapigeeredisenvoydefault1150xt1acgqrzh["Pod/apigee-redis-envoy-default-1150-xt1ac-gqrzh"]
     HelmReleaseredis["Helm Release: redis"]
     Secretapigeeredisdefaultcreds["Secret/apigee-redis-default-creds"]
 
@@ -54,10 +54,10 @@ graph TD;
     class ApigeeDeploymentapigeeredisenvoydefault apigee_crd;
     class Podapigeeredisdefault0 workload;
     class Podapigeeredisdefault1 workload;
-    class V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv workload;
-    class ReplicaSetapigeeredisenvoydefault1150cdkuv workload;
+    class V2HorizontalPodAutoscalerapigeeredisenvoydefault1150xt1ac workload;
+    class ReplicaSetapigeeredisenvoydefault1150xt1ac workload;
     class Serviceapigeeredisenvoydefault network;
-    class Podapigeeredisenvoydefault1150cdkuv7mv5h workload;
+    class Podapigeeredisenvoydefault1150xt1acgqrzh workload;
     class HelmReleaseredis helm;
     class Secretapigeeredisdefaultcreds config;
 
@@ -73,10 +73,10 @@ graph TD;
     ApigeeRedisdefault --> ApigeeDeploymentapigeeredisenvoydefault
     StatefulSetapigeeredisdefault --> Podapigeeredisdefault0
     StatefulSetapigeeredisdefault --> Podapigeeredisdefault1
-    ApigeeDeploymentapigeeredisenvoydefault --> V2HorizontalPodAutoscalerapigeeredisenvoydefault1150cdkuv
-    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150cdkuv
+    ApigeeDeploymentapigeeredisenvoydefault --> V2HorizontalPodAutoscalerapigeeredisenvoydefault1150xt1ac
+    ApigeeDeploymentapigeeredisenvoydefault --> ReplicaSetapigeeredisenvoydefault1150xt1ac
     ApigeeDeploymentapigeeredisenvoydefault --> Serviceapigeeredisenvoydefault
-    ReplicaSetapigeeredisenvoydefault1150cdkuv --> Podapigeeredisenvoydefault1150cdkuv7mv5h
+    ReplicaSetapigeeredisenvoydefault1150xt1ac --> Podapigeeredisenvoydefault1150xt1acgqrzh
     HelmReleaseredis --> Secretapigeeredisdefaultcreds
     HelmReleaseredis --> ApigeeRedisdefault
 ```

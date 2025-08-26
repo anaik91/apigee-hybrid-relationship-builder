@@ -3,9 +3,9 @@ Fetching all potential resources for deep discovery...
 Identifying seed objects for release 'ingress-manager'...
 Starting recursive discovery from seed objects...
 
-Discovery complete. Found a total of 11 related objects.
+Discovery complete. Found a total of 13 related objects.
 Applying filters to discovered objects...
-Filters applied. 11 objects remaining for diagram.
+Filters applied. 13 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -23,9 +23,11 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeeingressgatewaymanager["Deployment/apigee-ingressgateway-manager"]
-    ReplicaSetapigeeingressgatewaymanager5967c955ff["ReplicaSet/apigee-ingressgateway-manager-5967c955ff"]
-    Podapigeeingressgatewaymanager5967c955ff48dpn["Pod/apigee-ingressgateway-manager-5967c955ff-48dpn"]
-    Podapigeeingressgatewaymanager5967c955ff747l7["Pod/apigee-ingressgateway-manager-5967c955ff-747l7"]
+    ReplicaSetapigeeingressgatewaymanager5d768fb67d["ReplicaSet/apigee-ingressgateway-manager-5d768fb67d"]
+    ReplicaSetapigeeingressgatewaymanager85995c5896["ReplicaSet/apigee-ingressgateway-manager-85995c5896"]
+    ReplicaSetapigeeingressgatewaymanager8699fb4dcb["ReplicaSet/apigee-ingressgateway-manager-8699fb4dcb"]
+    Podapigeeingressgatewaymanager8699fb4dcb4g4mk["Pod/apigee-ingressgateway-manager-8699fb4dcb-4g4mk"]
+    Podapigeeingressgatewaymanager8699fb4dcbmvtp7["Pod/apigee-ingressgateway-manager-8699fb4dcb-mvtp7"]
     HelmReleaseingressmanager["Helm Release: ingress-manager"]
     V2HorizontalPodAutoscalerapigeeingressgatewaymanager["V2HorizontalPodAutoscaler/apigee-ingressgateway-manager"]
     Serviceapigeeingressgatewaymanager["Service/apigee-ingressgateway-manager"]
@@ -36,9 +38,11 @@ graph TD;
     Certificateapigeeistiod["Certificate/apigee-istiod"]
 
     class Deploymentapigeeingressgatewaymanager workload;
-    class ReplicaSetapigeeingressgatewaymanager5967c955ff workload;
-    class Podapigeeingressgatewaymanager5967c955ff48dpn workload;
-    class Podapigeeingressgatewaymanager5967c955ff747l7 workload;
+    class ReplicaSetapigeeingressgatewaymanager5d768fb67d workload;
+    class ReplicaSetapigeeingressgatewaymanager85995c5896 workload;
+    class ReplicaSetapigeeingressgatewaymanager8699fb4dcb workload;
+    class Podapigeeingressgatewaymanager8699fb4dcb4g4mk workload;
+    class Podapigeeingressgatewaymanager8699fb4dcbmvtp7 workload;
     class HelmReleaseingressmanager helm;
     class V2HorizontalPodAutoscalerapigeeingressgatewaymanager workload;
     class Serviceapigeeingressgatewaymanager network;
@@ -48,9 +52,11 @@ graph TD;
     class ServiceAccountapigeeingressgatewaymanager rbac;
     class Certificateapigeeistiod cert_manager_crd;
 
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
-    ReplicaSetapigeeingressgatewaymanager5967c955ff --> Podapigeeingressgatewaymanager5967c955ff48dpn
-    ReplicaSetapigeeingressgatewaymanager5967c955ff --> Podapigeeingressgatewaymanager5967c955ff747l7
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5d768fb67d
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager85995c5896
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager8699fb4dcb
+    ReplicaSetapigeeingressgatewaymanager8699fb4dcb --> Podapigeeingressgatewaymanager8699fb4dcb4g4mk
+    ReplicaSetapigeeingressgatewaymanager8699fb4dcb --> Podapigeeingressgatewaymanager8699fb4dcbmvtp7
     HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
     HelmReleaseingressmanager --> V2HorizontalPodAutoscalerapigeeingressgatewaymanager
     HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager

@@ -2,7 +2,7 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'ingress-manager'...
 
-Discovery complete. Found a total of 9 related objects.
+Discovery complete. Found a total of 11 related objects.
 No filters applied. Including all discovered objects.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
@@ -21,7 +21,9 @@ graph TD;
     classDef default fill:#fff,stroke:#333,stroke-width:1px,color:#000
 
     Deploymentapigeeingressgatewaymanager["Deployment/apigee-ingressgateway-manager"]
-    ReplicaSetapigeeingressgatewaymanager5967c955ff["ReplicaSet/apigee-ingressgateway-manager-5967c955ff"]
+    ReplicaSetapigeeingressgatewaymanager5d768fb67d["ReplicaSet/apigee-ingressgateway-manager-5d768fb67d"]
+    ReplicaSetapigeeingressgatewaymanager85995c5896["ReplicaSet/apigee-ingressgateway-manager-85995c5896"]
+    ReplicaSetapigeeingressgatewaymanager8699fb4dcb["ReplicaSet/apigee-ingressgateway-manager-8699fb4dcb"]
     HelmReleaseingressmanager["Helm Release: ingress-manager"]
     V2HorizontalPodAutoscalerapigeeingressgatewaymanager["V2HorizontalPodAutoscaler/apigee-ingressgateway-manager"]
     Serviceapigeeingressgatewaymanager["Service/apigee-ingressgateway-manager"]
@@ -32,7 +34,9 @@ graph TD;
     Certificateapigeeistiod["Certificate/apigee-istiod"]
 
     class Deploymentapigeeingressgatewaymanager workload;
-    class ReplicaSetapigeeingressgatewaymanager5967c955ff workload;
+    class ReplicaSetapigeeingressgatewaymanager5d768fb67d workload;
+    class ReplicaSetapigeeingressgatewaymanager85995c5896 workload;
+    class ReplicaSetapigeeingressgatewaymanager8699fb4dcb workload;
     class HelmReleaseingressmanager helm;
     class V2HorizontalPodAutoscalerapigeeingressgatewaymanager workload;
     class Serviceapigeeingressgatewaymanager network;
@@ -42,7 +46,9 @@ graph TD;
     class ServiceAccountapigeeingressgatewaymanager rbac;
     class Certificateapigeeistiod cert_manager_crd;
 
-    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5967c955ff
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager5d768fb67d
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager85995c5896
+    Deploymentapigeeingressgatewaymanager --> ReplicaSetapigeeingressgatewaymanager8699fb4dcb
     HelmReleaseingressmanager --> Deploymentapigeeingressgatewaymanager
     HelmReleaseingressmanager --> V2HorizontalPodAutoscalerapigeeingressgatewaymanager
     HelmReleaseingressmanager --> Serviceapigeeingressgatewaymanager

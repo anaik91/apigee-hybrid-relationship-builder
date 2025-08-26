@@ -2,9 +2,9 @@ Deep discovery disabled. Searching for Helm-managed objects only.
 Fetching all potential resources for shallow discovery...
 Identifying objects directly managed by release 'datastore'...
 
-Discovery complete. Found a total of 2 related objects.
+Discovery complete. Found a total of 4 related objects.
 Applying filters to discovered objects...
-Filters applied. 2 objects remaining for diagram.
+Filters applied. 4 objects remaining for diagram.
 Building relationship map...
 Generating Mermaid diagram with color-coded kinds...
 
@@ -23,12 +23,18 @@ graph TD;
 
     HelmReleasedatastore["Helm Release: datastore"]
     Secretapigeedatastoredefaultcreds["Secret/apigee-datastore-default-creds"]
+    ServiceAccountapigeecassandrabackupsa["ServiceAccount/apigee-cassandra-backup-sa"]
+    Certificateapigeecassandrabackuptls["Certificate/apigee-cassandra-backup-tls"]
     ApigeeDatastoredefault["ApigeeDatastore/default"]
 
     class HelmReleasedatastore helm;
     class Secretapigeedatastoredefaultcreds config;
+    class ServiceAccountapigeecassandrabackupsa rbac;
+    class Certificateapigeecassandrabackuptls cert_manager_crd;
     class ApigeeDatastoredefault apigee_crd;
 
     HelmReleasedatastore --> Secretapigeedatastoredefaultcreds
+    HelmReleasedatastore --> ServiceAccountapigeecassandrabackupsa
+    HelmReleasedatastore --> Certificateapigeecassandrabackuptls
     HelmReleasedatastore --> ApigeeDatastoredefault
 ```
